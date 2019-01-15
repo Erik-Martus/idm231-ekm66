@@ -1,8 +1,8 @@
 # IDM 231 - Content Prep
 
 ## Zodiac Algorithm
-`
-if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) {
+
+`if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) {
   AstroSign = "Cap";
 } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) {
   AstroSign = "Sag";
@@ -26,8 +26,8 @@ if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayO
   AstroSign = "Pis";
 } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) {
   AstroSign = "Aqu";
-}
-`
+}`
+
 ## Zodiac Signs
 
 ### Basic Elements
@@ -51,11 +51,11 @@ if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayO
 1. Metal
     - Sound: clang
     - Image: crossed sword and axe
-    - Text: 
+    - Text: **TBD**
 1. Lightning
     - Sound: thunder crack
     - Image: lightning bolt coming out of cloud
-    - Text: Fierce and full of awesome power. Visible for all but a moment, but with untameable strength. 
+    - Text: Fierce and full of awesome power. Visible for all but a moment, but with untameable strength.
     - **ADD MORE TEXT**
 1. Time
     - Sound: clock ticking
