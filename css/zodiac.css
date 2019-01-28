@@ -107,16 +107,15 @@ border-spacing: 0;
 }
 
 html {
-    /*Custom Properties*/
-    --text-color: #ffffff;
-
-    background-color: black;
+    background-attachment: fixed;
+    background-image: linear-gradient(to top, #05152e, #041837, #031c3f, #031f48, #032251);
+    background-repeat: no-repeat;
     font-size: 100%;
 }
 
 h1, h2 {
     text-align: center;
-    color: var(--text-color);
+    color: #fff;
 }
 
 h1 {
@@ -148,11 +147,11 @@ body {
  */
 
 .circle-container {
-    color: var(--text-color);
+    color: #fff;
     position: relative;
     width: 48rem;
     height: 48rem;
-    /* border: dashed 1px; */
+    border: dashed 1px #fff;
     border-radius: 50%;
     margin: 4rem auto 0;
 }
@@ -180,7 +179,7 @@ body {
  */
 
  a.sign p {
-    color: var(--text-color);
+    color: #fff;
     font-family: 'MontserratRegular';
     text-transform: uppercase;
     position: relative;
@@ -203,7 +202,7 @@ a.sign:hover p {
 .sign img {
     display: block;
     margin-bottom: 1rem;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .deg0 {
@@ -267,24 +266,35 @@ a.sign:hover p {
  *                                                                   
  */
 
- #spin01 {
+@keyframes spin-clock {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-counter {
+      to { transform: rotate(-360deg); }
+}
+ 
+.spin {
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#spin01 {
     width: 6rem;
     height: 6rem;
     border: 3px solid rgba(255,255,255,0);
     border-radius: 50%;
     border-top-color: #fff;
-    animation: spin 3s linear infinite;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-animation: spin 3s linear infinite;
-  }
+    animation: spin-clock 6s linear infinite;
+}
   
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  @-webkit-keyframes spin {
-    to { -webkit-transform: rotate(360deg); }
-  }
+#spin02 {
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid rgba(255,255,255,0);
+    border-radius: 50%;
+    border-left-color: #fff;
+    animation: spin-counter 6s linear infinite;
+}
