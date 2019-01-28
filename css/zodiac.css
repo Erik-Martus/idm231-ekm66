@@ -135,6 +135,23 @@ body {
     /* overflow-y: scroll; */
 }
 
+#line-center {
+    width: 1px;
+    background-color: #fff;
+    height: 100vh;
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;
+}
+
+#line-horiz {
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    width: 100vw;
+    top: 55.5%;
+}
 
 /***
  *     ██████╗██╗██████╗  ██████╗██╗     ███████╗
@@ -160,7 +177,8 @@ body {
 .circle-container a {
     display: block;
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%; 
+    left: 48%;
     /* width: 4em; height: 4em; */
     margin: -2em;
     text-decoration: none;
@@ -278,8 +296,8 @@ a.sign:hover p {
 .spin {
     display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    /* top: 50%;
+    left: 50%; */
 }
 
 #spin01 {
@@ -289,6 +307,8 @@ a.sign:hover p {
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin-clock 6s linear infinite;
+    left: 47.55%;
+    top: 51%;
 }
   
 #spin02 {
@@ -297,5 +317,7 @@ a.sign:hover p {
     border: 1px solid rgba(255,255,255,0);
     border-radius: 50%;
     border-left-color: #fff;
-    animation: spin-counter 6s linear infinite;
+    animation: spin-counter 10s linear infinite;
+    left: 46.75%;
+    top: 49.5%;
 }
