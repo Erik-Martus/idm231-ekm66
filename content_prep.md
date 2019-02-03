@@ -57,18 +57,18 @@
     - Image: lightning bolt coming out of cloud
     - Text: Fierce and full of awesome power. Visible for all but a moment, but with untameable strength.
     - **ADD MORE TEXT**
-1. Time
-    - Sound: clock ticking
-    - Image: clock or pocket watch
-    - Text: Ever moving and ever present. Patient and omnipitent it watches over all, gathering wisdom above all others. Though many have sought to control and tame it, all have failed and have succommed (check spelling) to its ceaslessly passing.
-1. Space
+1. Plasma
+    - Sound: **TBD**
+    - Image: **TBD**
+    - Text: **TBD**
+1. Void
     - Sound: void, tbd
     - Image: solar system
     - Text: Endless and mysterious. Much is hidden in the vast expanse, but that only peaks curiosity. The inner depths cause self searching and self reflection of what it is to be ourselves.
-1. Wood
-    - Sound: forest, hitting wood
-    - Image: tree
-    - Text: Natural and organic. Grows, twists, and turns to suit its needs. Others find shelter amongst its eaves, providing comfort and ease for the creatures of the world.
+1. Life
+    - Sound: **TBD**
+    - Image: Yin Yang type thing
+    - Text: **TBD**
 1. Aether
     - Sound: awing, angelic
     - Image: infinity symbol
