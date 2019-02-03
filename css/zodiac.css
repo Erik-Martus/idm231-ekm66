@@ -138,9 +138,10 @@ body {
 #line-center {
     width: 1px;
     background-color: #fff;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     margin: 0 auto;
+    top: 0%;
     left: 50%;
 }
 
@@ -149,8 +150,9 @@ body {
     background-color: #fff;
     position: absolute;
     margin: 0 auto;
-    width: 100vw;
-    top: 55.5%;
+    width: 100%;
+    left: 0%;
+    top: 50%;
 }
 
 /***
@@ -163,7 +165,7 @@ body {
  *                                               
  */
 
-.circle-container {
+#circle-container {
     color: #fff;
     position: relative;
     width: 48rem;
@@ -174,10 +176,10 @@ body {
     padding: 3.54rem; /*3.54rem = 2rem*1.77 (3.125rem = half the width of a link with img, 1.77 = sqrt(3.125))*/
 }
 
-.circle-container a {
+#circle-container a {
     display: block;
     position: absolute;
-    top: 50%; 
+    top: 48%; 
     left: 48%;
     /* width: 4em; height: 4em; */
     margin: -2em;
@@ -224,51 +226,51 @@ a.sign:hover p {
     width: 100%;
 }
 
-.deg0 {
+#deg0 /* 3 oclock */ {
     transform: translate(24rem); /* 24rem = half the width of the wrapper */
 }
 
-.deg30 {
+#deg30 /* 4 oclock */ {
     transform: rotate(30deg) translate(24rem) rotate(-30deg);
 }
 
-.deg60 {
+#deg60 /* 5 oclock */ {
     transform: rotate(60deg) translate(24rem) rotate(-60deg);
 }
 
-.deg90 {
+#deg90 /* 6 oclock */ {
     transform: rotate(90deg) translate(24rem) rotate(-90deg);
 }
 
-.deg120 {
+#deg120 /* 7 oclock */ {
     transform: rotate(120deg) translate(24rem) rotate(-120deg);
 }
 
-.deg150 {
+#deg150 /* 8 oclock */ {
     transform: rotate(150deg) translate(24rem) rotate(-150deg);
 }
 
-.deg180 {
+#deg180 /* 9 oclock */ {
     transform: translate(-24rem);
 }
 
-.deg210 {
+#deg210 /* 10 oclock */ {
     transform: rotate(210deg) translate(24rem) rotate(-210deg);
 }
 
-.deg240 {
+#deg240 /* 11 oclock */ {
     transform: rotate(240deg) translate(24rem) rotate(-240deg);
 }
 
-.deg270 {
+#deg270 /* 12 oclock */ {
     transform: rotate(270deg) translate(24rem) rotate(-270deg);
 }
 
-.deg300 {
+#deg300 /* 1 oclock */ {
     transform: rotate(300deg) translate(24rem) rotate(-300deg);
 }
 
-.deg330 {
+#deg330 /* 2 oclock */ {
     transform: rotate(330deg) translate(24rem) rotate(-330deg);
 }
 
@@ -307,8 +309,8 @@ a.sign:hover p {
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin-clock 6s linear infinite;
-    left: 47.55%;
-    top: 51%;
+    left: 43.75%;
+    top: 43.75%;
 }
   
 #spin02 {
@@ -318,6 +320,6 @@ a.sign:hover p {
     border-radius: 50%;
     border-left-color: #fff;
     animation: spin-counter 10s linear infinite;
-    left: 46.75%;
-    top: 49.5%;
+    left: 41.75%;
+    top: 41.75%;
 }
