@@ -107,15 +107,20 @@ border-spacing: 0;
 }
 
 html {
-    background-attachment: fixed;
+    /* background-attachment: fixed;
     background-image: linear-gradient(to top, #05152e, #041837, #031c3f, #031f48, #032251);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     font-size: 100%;
 }
 
+html, body {
+    height: 100%;
+    background: #F3F3F3;
+  }
+
 h1, h2 {
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 
 h1 {
@@ -130,14 +135,10 @@ h2 {
     font-family: 'RalewaySemiboldItalic'; /*add fallbacks*/
 }
 
-body {
-    height: 100%;
-    /* overflow-y: scroll; */
-}
-
+/* Centering lines for debugging purposes */
 #line-center {
     width: 1px;
-    background-color: #fff;
+    background-color: #000;
     height: 100%;
     position: absolute;
     margin: 0 auto;
@@ -147,12 +148,35 @@ body {
 
 #line-horiz {
     height: 1px;
-    background-color: #fff;
+    background-color: #000;
     position: absolute;
     margin: 0 auto;
     width: 100%;
     left: 0%;
     top: 50%;
+}
+
+/* Diagonal background box */
+.skewed-bg {
+background: #8C8272;
+padding: 27.5rem 0;
+height: 62.5rem;
+-webkit-transform: skew(0deg, -30deg);
+-moz-transform: skew(0deg, -30deg);
+-ms-transform: skew(0deg, -30deg);
+-o-transform: skew(0deg, -30deg);
+transform: skew(0deg, -30deg);
+margin-top: -27.5rem;
+box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6);
+}
+
+.skewed-bg .content {
+-webkit-transform: skew(0deg, 30deg);
+-moz-transform: skew(0deg, 30deg);
+-ms-transform: skew(0deg, 30deg);
+-o-transform: skew(0deg, 30deg);
+transform: skew(0deg, 30deg);
+text-align: center;
 }
 
 /***
@@ -166,11 +190,12 @@ body {
  */
 
 #circle-container {
-    color: #fff;
+    color: #000;
     position: relative;
-    width: 48rem;
-    height: 48rem;
-    border: dashed 1px #fff;
+    width: 36rem;
+    height: 36rem;
+    /* Border for debugging purposes, helps ensure even visual distribution of objects */
+    border: dashed 1px #000;
     border-radius: 50%;
     margin: 4rem auto 0;
     padding: 3.54rem; /*3.54rem = 2rem*1.77 (3.125rem = half the width of a link with img, 1.77 = sqrt(3.125))*/
@@ -179,8 +204,8 @@ body {
 #circle-container a {
     display: block;
     position: absolute;
-    top: 48%; 
-    left: 48%;
+    top: 47%; 
+    left: 47%;
     /* width: 4em; height: 4em; */
     margin: -2em;
     text-decoration: none;
@@ -199,8 +224,20 @@ body {
  *                                          
  */
 
+ a.sign img {
+     border-radius: 50%;
+     box-shadow: none;
+     opacity: .7;
+     transition: opacity .25s ease-in-out, box-shadow .25s ease-in-out;
+ }
+
+ a.sign:hover img {
+    box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
+    opacity: 1;
+ }
+
  a.sign p {
-    color: #fff;
+    color: #000;
     font-family: 'MontserratRegular';
     text-transform: uppercase;
     position: relative;
@@ -211,7 +248,7 @@ body {
 }
 
 a.sign:hover p {
-    top: 0;
+    top: -.25rem;
     opacity: 1;
 }
 
@@ -227,51 +264,51 @@ a.sign:hover p {
 }
 
 #deg0 /* 3 oclock */ {
-    transform: translate(24rem); /* 24rem = half the width of the wrapper */
+    transform: translate(18rem); /* 18rem = half the width of the wrapper */
 }
 
 #deg30 /* 4 oclock */ {
-    transform: rotate(30deg) translate(24rem) rotate(-30deg);
+    transform: rotate(30deg) translate(18rem) rotate(-30deg);
 }
 
 #deg60 /* 5 oclock */ {
-    transform: rotate(60deg) translate(24rem) rotate(-60deg);
+    transform: rotate(60deg) translate(18rem) rotate(-60deg);
 }
 
 #deg90 /* 6 oclock */ {
-    transform: rotate(90deg) translate(24rem) rotate(-90deg);
+    transform: rotate(90deg) translate(18rem) rotate(-90deg);
 }
 
 #deg120 /* 7 oclock */ {
-    transform: rotate(120deg) translate(24rem) rotate(-120deg);
+    transform: rotate(120deg) translate(18rem) rotate(-120deg);
 }
 
 #deg150 /* 8 oclock */ {
-    transform: rotate(150deg) translate(24rem) rotate(-150deg);
+    transform: rotate(150deg) translate(18rem) rotate(-150deg);
 }
 
 #deg180 /* 9 oclock */ {
-    transform: translate(-24rem);
+    transform: translate(-18rem);
 }
 
 #deg210 /* 10 oclock */ {
-    transform: rotate(210deg) translate(24rem) rotate(-210deg);
+    transform: rotate(210deg) translate(18rem) rotate(-210deg);
 }
 
 #deg240 /* 11 oclock */ {
-    transform: rotate(240deg) translate(24rem) rotate(-240deg);
+    transform: rotate(240deg) translate(18rem) rotate(-240deg);
 }
 
 #deg270 /* 12 oclock */ {
-    transform: rotate(270deg) translate(24rem) rotate(-270deg);
+    transform: rotate(270deg) translate(18rem) rotate(-270deg);
 }
 
 #deg300 /* 1 oclock */ {
-    transform: rotate(300deg) translate(24rem) rotate(-300deg);
+    transform: rotate(300deg) translate(18rem) rotate(-300deg);
 }
 
 #deg330 /* 2 oclock */ {
-    transform: rotate(330deg) translate(24rem) rotate(-330deg);
+    transform: rotate(330deg) translate(18rem) rotate(-330deg);
 }
 
 
@@ -309,8 +346,8 @@ a.sign:hover p {
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin-clock 6s linear infinite;
-    left: 43.75%;
-    top: 43.75%;
+    left: 41.75%;
+    top: 41.75%;
 }
   
 #spin02 {
@@ -320,6 +357,6 @@ a.sign:hover p {
     border-radius: 50%;
     border-left-color: #fff;
     animation: spin-counter 10s linear infinite;
-    left: 41.75%;
-    top: 41.75%;
+    left: 39%;
+    top: 39%;
 }
