@@ -211,6 +211,28 @@ text-align: center;
     text-decoration: none;
 }
 
+#gridContainer {
+    color: #000;
+    position: relative;
+    width: 36rem;
+    height: 36rem;
+    margin: 4rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(5, 8.25rem);
+    grid-template-rows: repeat(5, 8.25rem);
+    grid-template-areas:
+        ". darkness fire water ."
+        "light . . . air"
+        "aether . . . earth"
+        "life . . . metal"
+        ". void plasma lightning ."
+}
+
+#gridContainer a {
+    display: block;
+    text-decoration: none;
+}
+
 
 
 
@@ -224,19 +246,37 @@ text-align: center;
  *                                          
  */
 
- a.sign img {
-     border-radius: 50%;
-     box-shadow: none;
-     opacity: .7;
-     transition: opacity .25s ease-in-out, box-shadow .25s ease-in-out;
- }
+a.sign img {
+    border-radius: 50%;
+    box-shadow: none;
+    opacity: .7;
+    transition: opacity .25s ease-in-out, box-shadow .25s ease-in-out;
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+}
 
- a.sign:hover img {
+a.sign:hover img {
+box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
+opacity: 1;
+}
+
+a.sign02 img {
+    border-radius: 50%;
+    box-shadow: none;
+    opacity: .7;
+    transition: opacity .25s ease-in-out, box-shadow .25s ease-in-out;
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+a.sign02:hover img {
     box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
     opacity: 1;
- }
+}
 
- a.sign p {
+a.sign p {
     color: #000;
     font-family: 'MontserratRegular';
     text-transform: uppercase;
@@ -252,15 +292,84 @@ a.sign:hover p {
     opacity: 1;
 }
 
+a.sign02 p {
+    color: #000;
+    font-family: 'MontserratRegular';
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    top: -.5rem;
+    transition: top .25s ease-in-out, opacity .5s ease-in-out;
+    opacity: 0;
+}
+
+a.sign02:hover p {
+    top: -.25rem;
+    opacity: 1;
+}
+
 .sign {
     display: block;
     width: 6.25rem; /*100px*/
 }
 
-.sign img {
+.sign02 {
     display: block;
-    margin-bottom: 1rem;
-    width: 100%;
+    width: 6.25rem; /*100px*/
+}
+
+#fire {
+    grid-area: fire;
+}
+
+#water {
+    grid-area: water;
+    position: relative;
+    top: 1rem;
+}
+
+#water:hover img {
+    background-color: blue;
+}
+
+#air {
+    grid-area: air;
+}
+
+#earth {
+    grid-area: earth;
+}
+
+#metal {
+    grid-area: metal;
+}
+
+#lightning {
+    grid-area: lightning;
+}
+
+#plasma {
+    grid-area: plasma;
+}
+
+#void {
+    grid-area: void;
+}
+
+#life {
+    grid-area: life;
+}
+
+#aether {
+    grid-area: aether;
+}
+
+#light {
+    grid-area: light;
+}
+
+#darkness {
+    grid-area: darkness;
 }
 
 #deg0 /* 3 oclock */ {
