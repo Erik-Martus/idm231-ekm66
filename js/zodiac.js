@@ -130,3 +130,10 @@ window.onload = () => {
 
   buildSigns();
 };
+
+const deg270 = document.getElementById('deg270');
+console.log(deg270);
+
+//From sign:hover do .parentElement.parentElement etc. to change the class to have color animation of bckgr
+
+//look up promise in es6 instructor notes
