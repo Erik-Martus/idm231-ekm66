@@ -135,27 +135,6 @@ h2 {
     font-family: 'RalewaySemiboldItalic'; /*add fallbacks*/
 }
 
-/* Centering lines for debugging purposes */
-#line-center {
-    width: 1px;
-    background-color: #000;
-    height: 100%;
-    position: absolute;
-    margin: 0 auto;
-    top: 0%;
-    left: 50%;
-}
-
-#line-horiz {
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    margin: 0 auto;
-    width: 100%;
-    left: 0%;
-    top: 50%;
-}
-
 /* Diagonal background box */
 .skewed-bg {
 background: #8C8272;
@@ -189,43 +168,22 @@ text-align: center;
  *                                               
  */
 
-#circle-container {
+#signContainer {
     color: #000;
     position: relative;
-    width: 36rem;
-    height: 36rem;
-    /* Border for debugging purposes, helps ensure even visual distribution of objects */
-    border: dashed 1px #000;
-    border-radius: 50%;
-    margin: 4rem auto 0;
-    padding: 3.54rem; /*3.54rem = 2rem*1.77 (3.125rem = half the width of a link with img, 1.77 = sqrt(3.125))*/
-}
-
-#circle-container a {
-    display: block;
-    position: absolute;
-    top: 47%; 
-    left: 47%;
-    /* width: 4em; height: 4em; */
-    margin: -2em;
-    text-decoration: none;
-}
-
-#gridContainer {
-    color: #000;
-    position: relative;
-    width: 36rem;
-    height: 36rem;
-    margin: 4rem auto 0;
+    width: 41.25rem;
+    height: 41.25rem;
+    margin: 3rem auto 0;
     display: grid;
     grid-template-columns: repeat(5, 8.25rem);
     grid-template-rows: repeat(5, 8.25rem);
     grid-template-areas:
         ". darkness fire water ."
         "light . . . air"
-        "aether . . . earth"
+        "aether . spin . earth"
         "life . . . metal"
-        ". void plasma lightning ."
+        ". void plasma lightning .";
+    justify-items: center;
 }
 
 #gridContainer a {
@@ -246,6 +204,7 @@ text-align: center;
  *                                          
  */
 
+
 a.sign img {
     border-radius: 50%;
     box-shadow: none;
@@ -257,21 +216,6 @@ a.sign img {
 }
 
 a.sign:hover img {
-box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
-opacity: 1;
-}
-
-a.sign02 img {
-    border-radius: 50%;
-    box-shadow: none;
-    opacity: .7;
-    transition: opacity .25s ease-in-out, box-shadow .25s ease-in-out;
-    display: block;
-    margin-bottom: 1rem;
-    width: 100%;
-}
-
-a.sign02:hover img {
     box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
     opacity: 1;
 }
@@ -292,48 +236,29 @@ a.sign:hover p {
     opacity: 1;
 }
 
-a.sign02 p {
-    color: #000;
-    font-family: 'MontserratRegular';
-    text-transform: uppercase;
-    position: relative;
-    text-align: center;
-    top: -.5rem;
-    transition: top .25s ease-in-out, opacity .5s ease-in-out;
-    opacity: 0;
-}
-
-a.sign02:hover p {
-    top: -.25rem;
-    opacity: 1;
-}
-
 .sign {
     display: block;
     width: 6.25rem; /*100px*/
+    position: relative;
 }
 
-.sign02 {
-    display: block;
-    width: 6.25rem; /*100px*/
-}
-
+/* IDs for individual signs */
 #fire {
     grid-area: fire;
 }
 
 #water {
     grid-area: water;
-    position: relative;
-    top: 1rem;
+    top: 25%;
 }
 
-#water:hover img {
+/* #water:hover img {
     background-color: blue;
-}
+} */
 
 #air {
     grid-area: air;
+    right: 25%;
 }
 
 #earth {
@@ -342,10 +267,12 @@ a.sign02:hover p {
 
 #metal {
     grid-area: metal;
+    right: 25%;
 }
 
 #lightning {
     grid-area: lightning;
+    bottom: 25%;
 }
 
 #plasma {
@@ -354,10 +281,12 @@ a.sign02:hover p {
 
 #void {
     grid-area: void;
+    bottom: 25%;
 }
 
 #life {
     grid-area: life;
+    left: 25%;
 }
 
 #aether {
@@ -366,61 +295,13 @@ a.sign02:hover p {
 
 #light {
     grid-area: light;
+    left: 25%;
 }
 
 #darkness {
     grid-area: darkness;
+    top: 25%;
 }
-
-#deg0 /* 3 oclock */ {
-    transform: translate(18rem); /* 18rem = half the width of the wrapper */
-}
-
-#deg30 /* 4 oclock */ {
-    transform: rotate(30deg) translate(18rem) rotate(-30deg);
-}
-
-#deg60 /* 5 oclock */ {
-    transform: rotate(60deg) translate(18rem) rotate(-60deg);
-}
-
-#deg90 /* 6 oclock */ {
-    transform: rotate(90deg) translate(18rem) rotate(-90deg);
-}
-
-#deg120 /* 7 oclock */ {
-    transform: rotate(120deg) translate(18rem) rotate(-120deg);
-}
-
-#deg150 /* 8 oclock */ {
-    transform: rotate(150deg) translate(18rem) rotate(-150deg);
-}
-
-#deg180 /* 9 oclock */ {
-    transform: translate(-18rem);
-}
-
-#deg210 /* 10 oclock */ {
-    transform: rotate(210deg) translate(18rem) rotate(-210deg);
-}
-
-#deg240 /* 11 oclock */ {
-    transform: rotate(240deg) translate(18rem) rotate(-240deg);
-}
-
-#deg270 /* 12 oclock */ {
-    transform: rotate(270deg) translate(18rem) rotate(-270deg);
-}
-
-#deg300 /* 1 oclock */ {
-    transform: rotate(300deg) translate(18rem) rotate(-300deg);
-}
-
-#deg330 /* 2 oclock */ {
-    transform: rotate(330deg) translate(18rem) rotate(-330deg);
-}
-
-
 
 
 /***
@@ -443,20 +324,22 @@ a.sign02:hover p {
  
 .spin {
     display: block;
-    position: absolute;
-    /* top: 50%;
-    left: 50%; */
+    /* grid-column-start: 1;
+    grid-column-end: span 5;
+    grid-row-start: 1;
+    grid-row-end: span 5; */
+    /* align-self: center;
+    justify-self: center; */
+    grid-area: spin;
 }
 
 #spin01 {
-    width: 6rem;
-    height: 6rem;
+    width: 6.25rem;
+    height: 6.25rem;
     border: 3px solid rgba(255,255,255,0);
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin-clock 6s linear infinite;
-    left: 41.75%;
-    top: 41.75%;
 }
   
 #spin02 {
@@ -466,6 +349,6 @@ a.sign02:hover p {
     border-radius: 50%;
     border-left-color: #fff;
     animation: spin-counter 10s linear infinite;
-    left: 39%;
-    top: 39%;
+    position: relative;
+    top: -.875rem;
 }
