@@ -69,27 +69,29 @@ border-spacing: 0;
     font-family: 'MontserratRegular';
     src: url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
          url('../fonts/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: 'RalewayBlack';
-    src: url('../fonts/raleway-black-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-black-webfont.woff') format('woff');
+    font-family: 'Potra';
+    src: url('../fonts/potra1-webfont.woff') format('woff'),
+         url('../fonts/potra1-webfont.woff2') format('woff2');
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: 'RalewaySemibold';
-    src: url('../fonts/raleway-semibold-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-semibold-webfont.woff') format('woff');
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-regular-webfont.woff') format('woff'),
+         url('../fonts/opensans-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
 }
 
 @font-face {
-    font-family: 'RalewaySemiboldItalic';
-    src: url('../fonts/raleway-semibolditalic-webfont.woff2') format('woff2'),
-         url('../fonts/raleway-semibolditalic-webfont.woff') format('woff');
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans-semibold-webfont.woff') format('woff'),
+         url('../fonts/opensans-semibold-webfont.woff2') format('woff2');
+    font-weight: 600;
 }
-
-
 
 
 /***
@@ -104,6 +106,7 @@ border-spacing: 0;
 
 :root {
     --colorExpand: colorExpand .2s ease-in-out forwards;
+    --colorRemove: colorRemove .2s ease-in-out forwards;
 }
 
  *, *::before, *::after {
@@ -131,23 +134,23 @@ body {
         ". . . . . . . ."
         ". main main main main main main .";
     overflow-x: hidden;
+    font: normal normal 1rem/1.5rem 'OpenSans', Helvetica, Arial, sans-serif;
 }
 
 h1, h2 {
     text-align: center;
-    color: #000;
+    /* color: #000; */
 }
 
 h1 {
     font-size: 3rem;
-    font-family: 'RalewayBlack'; /*add fallbacks*/
+    font-family: 'Potra', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     margin: 1.5rem 0 1.5rem;
 }
 
 h2 {
-    font-size: 1.5rem;
-    font-family: 'RalewaySemiboldItalic'; /*add fallbacks*/
+    font: normal normal 600 1.5rem/2.25rem 'OpenSans', Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -219,64 +222,72 @@ div.bkgrContain {
     left: -50%;
 }
 
+#colorFill.expand {
+    animation: var(--colorExpand);
+}
+
+#colorFill.remove {
+    animation: var(--colorRemove);
+}
+
 #colorFill.fire {
     background-color: red;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.water {
     background-color: blue;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.air {
     background-color: silver;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.earth {
     background-color: green;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.metal {
     background-color: rgb(105, 105, 105);
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.lightning {
     background-color: yellow;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.plasma {
     background-color: purple;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.void {
     background-color: darkolivegreen;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.life {
     background-color: lightgoldenrodyellow;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.aether {
     background-color: lavender;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.light {
     background-color: oldlace;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 #colorFill.darkness {
     background-color: darkcyan;
-    animation: var(--colorExpand);
+    /* animation: var(--colorExpand); */
 }
 
 /* Can't get the class to smoothly remove itself through JS */
@@ -493,6 +504,7 @@ button.sign:hover p {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,.4);
+    color: #f7f7f7;
     grid-area: 1 / 1 / -1 / -1;
     position: fixed;
     z-index: 20;
@@ -515,16 +527,52 @@ button.sign:hover p {
     padding: 5rem;
     grid-template-columns: 22.5rem 5rem 22.5rem;
     grid-template-rows: 3rem 1.5rem 1fr 10rem 2rem 1fr 3rem;
-    /* grid-template-areas: 
+    grid-template-areas: 
         "heading heading heading"
         "subhead subhead subhead"
         ". . ."
-        "type . type"
-        "desc . desc"
+        "method . method2"
+        "desc . desc2"
         ". . ."
-        "close close close"; */
+        "close close close";
+    justify-items: center;
+    align-items: center;
 }
 
-.close {
+.overlayHeading {
+    grid-area: heading;
+    font: 2.5rem 'Potra', Arial, Helvetica, sans-serif;
+}
+
+.overlaySubhead {
+    grid-area: subhead;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    opacity: .8;
+}
+
+.overlayMethod {
+    grid-area: method;
+    filter: invert(85%) drop-shadow(0 0 1rem black);
+    height: 80%;
+}
+
+.overlayMethod2 {
+    grid-area: method2;
+}
+
+.overlayDesc {
+    grid-area: desc;
+}
+
+.overlayDesc2 {
+    grid-area: desc2;
+}
+
+.overlayClose {
     grid-area: close;
+    background: none;
+    color: #f7f7f7;
+    font: 2.5rem 'Potra', Arial, Helvetica, sans-serif;
 }
