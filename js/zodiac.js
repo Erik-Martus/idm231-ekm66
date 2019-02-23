@@ -78,18 +78,12 @@ const darkness = new sign(
   'TBD'
 );
 
-console.log(darkness);
-
 const signList = [fire, water, air, earth, metal, lightning, plasma, space, life, aether, light, darkness];
 
-//Each object successfully created.
-
-const app = document.getElementById('signContainer');
-console.log('app');
-//Gets element but I have no idea how target each object I created.
+const container = document.getElementById('signContainer');
 
 const createSign = sign => {
-  const button = document.createElement('a');
+  const button = document.createElement('button');
 
   button.id = `${sign.name}`;
   button.classList.add('sign');
@@ -98,6 +92,7 @@ const createSign = sign => {
   const paragraph = document.createElement('p');
 
   image.src = sign.image;
+  image.alt =`${sign.name} icon`;
   paragraph.innerHTML = sign.name;
 
   button.appendChild(image);
@@ -109,19 +104,58 @@ const createSign = sign => {
 const buildSigns = () => {
   signList.forEach(signName => {
     const signButton = createSign(signName);
-    app.appendChild(signButton);
+    container.appendChild(signButton);
   });
 };
 
-window.onload = () => {
-  console.log('Window loaded!');
+for (const name in sign) {
+  console.log(`${sign[name]}`);
+}
 
-  buildSigns();
-};
+let myPromise = new Promise ((resolve, reject) => {
+  window.onload = () => {
+    console.log('Window loaded!');
+    buildSigns();
+    resolve('Sucess!');
+  };
+})
 
-const deg270 = document.getElementById('deg270');
-console.log(deg270);
+myPromise.then((successMessage) => {
+  console.log (successMessage);
+  // const zodiacSigns = document.getElementById('fire');
+  // console.log(zodiacSigns);
 
-//From sign:hover do .parentElement.parentElement etc. to change the class to have color animation of bckgr
+  // zodiacSigns.addEventListener('mouseover', function() {
+  //   skew.classList.add(`skewFire`);
+  //   skew.classList.remove('skewDefault');
+  // }, false)
 
-//look up promise in es6 instructor notes
+  // zodiacSigns.addEventListener('mouseout', function() {
+  //   skew.classList.add('skewDefault');
+  //   skew.classList.remove(`skewFire`);
+  // }, false)
+  const findSigns = document.querySelectorAll('.sign');
+
+  const idArray = []
+
+  for (let i = 0; i < findSigns.length; i++) {
+    idArray.push(findSigns[i].id)
+  }
+
+  const skew = document.getElementById('skew');
+
+  for (let i = 0; i < idArray.length; i++) {
+    const zodiacSigns = document.getElementById(`${idArray[i]}`);
+    const colorFill = document.getElementById('colorFill');
+
+    zodiacSigns.addEventListener('mouseover', function() {
+      colorFill.classList.add(`${idArray[i]}`);
+    })  
+
+    zodiacSigns.addEventListener('mouseout', function() {
+      colorFill.classList.remove(`${idArray[i]}`);
+    })
+  }
+
+
+}) //End mypromise.then

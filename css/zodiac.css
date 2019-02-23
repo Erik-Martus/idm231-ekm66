@@ -102,7 +102,11 @@ border-spacing: 0;
  *                                      
  */
 
-*, *::before, *::after {
+:root {
+    --colorExpand: colorExpand .2s ease-in-out forwards;
+}
+
+ *, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -111,12 +115,23 @@ html {
     background-image: linear-gradient(to top, #05152e, #041837, #031c3f, #031f48, #032251);
     background-repeat: no-repeat; */
     font-size: 100%;
-}
-
-html, body {
     height: 100%;
     background: #F3F3F3;
-  }
+}
+
+body {
+    position: relative;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    /* grid-template-rows: repeat(20, 5rem); */
+    grid-template: 10rem 3rem auto / repeat(8, 12.5%);
+    grid-template-areas: 
+        ". header header header header header header ."
+        ". . . . . . . ."
+        ". main main main main main main .";
+    overflow-x: hidden;
+}
 
 h1, h2 {
     text-align: center;
@@ -135,28 +150,139 @@ h2 {
     font-family: 'RalewaySemiboldItalic'; /*add fallbacks*/
 }
 
-/* Diagonal background box */
-.skewed-bg {
-background: #8C8272;
-padding: 27.5rem 0;
-height: 62.5rem;
--webkit-transform: skew(0deg, -30deg);
--moz-transform: skew(0deg, -30deg);
--ms-transform: skew(0deg, -30deg);
--o-transform: skew(0deg, -30deg);
-transform: skew(0deg, -30deg);
-margin-top: -27.5rem;
-box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6);
+header {
+    grid-area: header;
 }
 
-.skewed-bg .content {
--webkit-transform: skew(0deg, 30deg);
--moz-transform: skew(0deg, 30deg);
--ms-transform: skew(0deg, 30deg);
--o-transform: skew(0deg, 30deg);
-transform: skew(0deg, 30deg);
-text-align: center;
+main {
+    grid-area: main;
 }
+
+/* Diagonal background box */
+div.bkgrContain {
+    height: 100%;
+    /* background-color: aqua; */
+    grid-area: 1 / 1 / -1 / -1;
+    z-index: -10;
+    /* overflow: hidden; */
+}
+
+#skew {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* width: 100%; */
+    height: 40rem;
+    /* background-color: #aeaeae; */
+    transform: skewY(-15deg);
+    transform-origin: top left;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+}
+
+.skewDefault {
+    background-color: #aeaeae;
+    transition: all .5s ease-in-out;
+}
+
+.skewfire {
+    background-color: red;
+}
+
+@keyframes colorExpand {
+    from {
+        height: 0%;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes colorRemove {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0%;
+    }
+}
+
+#colorFill {
+    width: 200%;
+    /* height: 6rem; */
+    /* border-radius: 50%; */
+    transform: skewY(15deg) rotate(-15deg);
+    position: absolute;
+    bottom: 0%;
+    left: -50%;
+}
+
+#colorFill.fire {
+    background-color: red;
+    animation: var(--colorExpand);
+}
+
+#colorFill.water {
+    background-color: blue;
+    animation: var(--colorExpand);
+}
+
+#colorFill.air {
+    background-color: silver;
+    animation: var(--colorExpand);
+}
+
+#colorFill.earth {
+    background-color: green;
+    animation: var(--colorExpand);
+}
+
+#colorFill.metal {
+    background-color: rgb(105, 105, 105);
+    animation: var(--colorExpand);
+}
+
+#colorFill.lightning {
+    background-color: yellow;
+    animation: var(--colorExpand);
+}
+
+#colorFill.plasma {
+    background-color: purple;
+    animation: var(--colorExpand);
+}
+
+#colorFill.void {
+    background-color: darkolivegreen;
+    animation: var(--colorExpand);
+}
+
+#colorFill.life {
+    background-color: lightgoldenrodyellow;
+    animation: var(--colorExpand);
+}
+
+#colorFill.aether {
+    background-color: lavender;
+    animation: var(--colorExpand);
+}
+
+#colorFill.light {
+    background-color: oldlace;
+    animation: var(--colorExpand);
+}
+
+#colorFill.darkness {
+    background-color: darkcyan;
+    animation: var(--colorExpand);
+}
+
+/* Can't get the class to smoothly remove itself through JS */
+/* .remove {
+    animation: colorRemove .5s ease-in-out reverse;
+} */
 
 /***
  *     ██████╗██╗██████╗  ██████╗██╗     ███████╗
@@ -169,14 +295,15 @@ text-align: center;
  */
 
 #signContainer {
+
     color: #000;
     position: relative;
-    width: 41.25rem;
-    height: 41.25rem;
-    margin: 3rem auto 0;
+    width: 47.25rem;
+    height: 47.25rem;
+    margin: 0 auto 3rem;
     display: grid;
-    grid-template-columns: repeat(5, 8.25rem);
-    grid-template-rows: repeat(5, 8.25rem);
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
     grid-template-areas:
         ". darkness fire water ."
         "light . . . air"
@@ -184,11 +311,6 @@ text-align: center;
         "life . . . metal"
         ". void plasma lightning .";
     justify-items: center;
-}
-
-#gridContainer a {
-    display: block;
-    text-decoration: none;
 }
 
 
@@ -205,7 +327,7 @@ text-align: center;
  */
 
 
-a.sign img {
+button.sign img {
     border-radius: 50%;
     box-shadow: none;
     opacity: .7;
@@ -215,14 +337,15 @@ a.sign img {
     width: 100%;
 }
 
-a.sign:hover img {
+button.sign:hover img {
     box-shadow: 0 0.1rem 0.5rem rgba(0,0,0,.6); 
     opacity: 1;
+    cursor: pointer;
 }
 
-a.sign p {
+button.sign p {
     color: #000;
-    font-family: 'MontserratRegular';
+    font-family: 'MontserratRegular', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     position: relative;
     text-align: center;
@@ -231,7 +354,7 @@ a.sign p {
     opacity: 0;
 }
 
-a.sign:hover p {
+button.sign:hover p {
     top: -.25rem;
     opacity: 1;
 }
@@ -240,6 +363,9 @@ a.sign:hover p {
     display: block;
     width: 6.25rem; /*100px*/
     position: relative;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 /* IDs for individual signs */
@@ -351,4 +477,54 @@ a.sign:hover p {
     animation: spin-counter 10s linear infinite;
     position: relative;
     top: -.875rem;
+}
+
+/* Overlay */
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.4);
+    grid-area: 1 / 1 / -1 / -1;
+    position: fixed;
+    z-index: 20;
+    animation: fadeIn .5s ease-in-out forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noScoll {
+    overflow: hidden;
+}
+
+.infoContainer {
+    width: 60rem;
+    height: 40rem;
+    background-color: #333333;
+    border-radius: 1rem;
+    display: grid;
+    padding: 5rem;
+    grid-template-columns: 22.5rem 5rem 22.5rem;
+    grid-template-rows: 3rem 1.5rem 1fr 10rem 2rem 1fr 3rem;
+    /* grid-template-areas: 
+        "heading heading heading"
+        "subhead subhead subhead"
+        ". . ."
+        "type . type"
+        "desc . desc"
+        ". . ."
+        "close close close"; */
+}
+
+.close {
+    grid-area: close;
 }
