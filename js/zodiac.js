@@ -150,10 +150,18 @@ myPromise.then((successMessage) => {
 
     zodiacSigns.addEventListener('mouseover', function() {
       colorFill.classList.add(`${idArray[i]}`);
+      colorFill.classList.add('expand');
     })  
 
     zodiacSigns.addEventListener('mouseout', function() {
-      colorFill.classList.remove(`${idArray[i]}`);
+      colorFill.classList.remove('expand');
+      colorFill.classList.add('remove');
+
+      colorFill.addEventListener('animationend', function() {
+        colorFill.classList.remove('remove');
+        colorFill.classList.remove(`${idArray[i]}`);
+      })
+      // colorFill.classList.remove(`${idArray[i]}`);
     })
   }
 
