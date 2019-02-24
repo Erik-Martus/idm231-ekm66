@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/zodiac.css">
 </head>
 
-<body class="noScoll">
+<body id="body" class="noScroll">
     <header>
         <h1>Elemental Zodiac</h1>
         <!-- <h2>Before modern science it was said that the world was composed of certain elements in varying amounts.</h2> -->
@@ -33,16 +33,23 @@
         <!-- End #signContainer -->
 
     </main>
-    <!-- <section id="overlay">
+    <section id="overlay" class="fadeIn">
         <section id="details" class="infoContainer">
             <h2 class="overlayHeading">WELCOME</h2>
             <h3 class="overlaySubhead">Discover the Element Associated with Your Birthday</h3>
             <img src="img/icons/fire.svg" alt="Fire Icon" class="overlayMethod">
             <p class="overlayDesc">Click on Any of the Element Icons</p>
 
-            <button class="overlayClose">CLOSE</button>
+            <button id="closeBtn" class="overlayClose">CLOSE</button>
         </section>
-    </section> -->
+        <!-- <section id="fireInfo" class="signInfo">
+            <img src="img/icons/fire.svg" alt="Fire Icon" class="elementIcon">
+            <h2 class="signName">Fire</h2>
+            <h3 class="dateRange">March 21 - April 19</h3>
+            <p class="overlayDesc">Bright and dazzling. The foundation from which all other things came. Warmth in even the coldest of times. Wild when uncontrolled, but when controlled is one of the strongest forces, with the potential for destruction and creation.</p>
+            <button id="closeBtn" class="overlayClose">CLOSE</button>
+        </section> -->
+    </section>
 
     <script src="js/zodiac.js"></script>
 </body>
