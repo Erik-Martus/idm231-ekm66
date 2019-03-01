@@ -507,10 +507,12 @@ button.sign:hover p {
 
 .fadeIn {
     animation: fadeIn .5s ease-in-out forwards;
+    display: flex;
 }
 
 .fadeOut {
     animation: fadeOut .5s ease-in-out forwards;
+    display: flex;
 }
 
 #overlay {
@@ -521,7 +523,7 @@ button.sign:hover p {
     grid-area: 1 / 1 / -1 / -1;
     position: fixed;
     z-index: 20;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
 }
@@ -623,4 +625,12 @@ button.sign:hover p {
 
 .dateRange {
     grid-area: date;
+}
+
+
+
+
+
+.hidden {
+    display: none;
 }

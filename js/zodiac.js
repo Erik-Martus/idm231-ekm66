@@ -56,14 +56,14 @@ const plasma = new sign(
   'img/icons/plasma.svg',
   'sounds/plasma.mp3',
   'TBD',
-  'September 23 - October 22'
+  'September 23 - October 23'
 );
 const space = new sign(
   'void',
   'img/icons/void.svg',
   'sounds/void.mp3',
   'Endless and mysterious. Much is hidden in the vast expanse, but that only peaks curiosity. The inner depths cause self searching and self reflection of what it is to be ourselves.',
-  'October 23 - November 21'
+  'October 24 - November 21'
 );
 const life = new sign(
   'life',
@@ -124,10 +124,14 @@ const buildSigns = () => {
   });
 };
 
+const body = document.getElementById('body');
+const overlayContainer = document.getElementById('overlay');
+
 const createInfo = sign => {
   const signOverlay = document.createElement('section');
   signOverlay.id = `${sign.name}Info`;
   signOverlay.classList.add('signInfo');
+  signOverlay.classList.add('hidden');
 
   const image = document.createElement('img');
   image.src = sign.image;
@@ -146,38 +150,30 @@ const createInfo = sign => {
   description.classList.add('overlayDesc');
   description.innerHTML = sign.description;
 
+  // <button id="closeBtn" class="overlayClose">CLOSE</button>
+
+  const closeBtn = document.createElement('button');
+  closeBtn.setAttribute('id', 'closeBtn');
+  closeBtn.classList.add('overlayClose');
+  closeBtn.innerHTML = 'CLOSE';
+
   signOverlay.appendChild(image);
   signOverlay.appendChild(signName);
   signOverlay.appendChild(dateRange);
   signOverlay.appendChild(description);
+  signOverlay.appendChild(closeBtn);
 
-  // How to return each of these so that they can be targetted and added
-  console.log(signOverlay);
+  return signOverlay;
 }
 
 const buildInfo = () => {
   signList.forEach(signName => {
     const infoOverlay = createInfo(signName);
+    overlayContainer.appendChild(infoOverlay);
   })
 }
 
-const body = document.getElementById('body');
-const overlayContainer = document.getElementById('overlay');
 const closeBtn = document.getElementById('closeBtn');
-
-closeBtn.addEventListener('click', function () {
-  console.log('click');
-  overlayContainer.classList.remove('fadeIn');
-  overlayContainer.classList.add('fadeOut');
-  console.log(overlayContainer);
-  body.classList.remove('noScroll');
-  // overlayContainer.hidden = 'true';
-  // overlayContainer.setAttribute('aria-hidden', true);
-  overlayContainer.addEventListener('animationend', function () {
-    body.removeChild(overlayContainer);
-  })
-
-})
 
 let myPromise = new Promise((resolve, reject) => {
   window.onload = () => {
@@ -185,9 +181,14 @@ let myPromise = new Promise((resolve, reject) => {
     buildInfo();
     resolve('Sucess!');
   };
-})
+});
 
 myPromise.then((successMessage) => {
+  const closeBtn = document.getElementsByClassName('overlayClose');
+  console.log(closeBtn);
+
+
+
   const findSigns = document.querySelectorAll('.sign');
 
   const idArray = []
@@ -202,34 +203,65 @@ myPromise.then((successMessage) => {
     const zodiacSigns = document.getElementById(`${idArray[i]}`);
     const colorFill = document.getElementById('colorFill');
 
-    zodiacSigns.addEventListener('mouseover', function () {
+    zodiacSigns.addEventListener('mouseenter', function () {
       colorFill.classList.add(`${idArray[i]}`);
       colorFill.classList.add('expand');
     })
 
-    zodiacSigns.addEventListener('mouseout', function () {
+    zodiacSigns.addEventListener('mouseleave', function () {
       colorFill.classList.remove('expand');
       colorFill.classList.add('remove');
 
-
-      // get rid of this, use a "timeout" instead (see "extras" examples
-      )
-    colorFill.addEventListener('animationend', function () {
-      colorFill.classList.remove('remove');
-      colorFill.classList.remove(`${idArray[i]}`);
+      window.setTimeout(() => {
+        colorFill.classList.remove('remove');
+        colorFill.classList.remove(`${idArray[i]}`);
+      }, 500);
     })
-  })
 
-zodiacSigns.addEventListener('click', function () {
-  const overlay = document.createElement('section');
-  overlay.setAttribute('id', 'overlay');
-  overlay.classList.add('fadeIn');
+    zodiacSigns.addEventListener('click', function () {
+      overlayContainer.classList.remove('hidden');
+      overlayContainer.classList.add('fadeIn');
 
-  console.log(overlay);
-  body.appendChild(overlay);
-  body.classList.add('noScroll');
-})
+      const signOverlay = document.getElementById(`${idArray[i]}Info`);
+      signOverlay.classList.remove('hidden');
+      console.log(signOverlay);
+
+      body.appendChild(overlay);
+      body.classList.add('noScroll');
+    })
   }
 
+  for (let i = 0; i < closeBtn.length; i++) {
+
+    closeBtn[i].addEventListener('click', function () {
+      console.log(i + ':' + closeBtn[i].parentElement);
+      overlayContainer.classList.remove('fadeIn');
+      overlayContainer.classList.add('fadeOut');
+      body.classList.remove('noScroll');
+
+      const signOverlay = document.getElementById(`${idArray[i]}Info`);
+      console.log(signOverlay);
+
+      window.setTimeout(() => {
+        overlayContainer.classList.add('hidden');
+        overlayContainer.classList.remove('fadeOut');
+        overlayContainer.setAttribute('hidden', "")
+        overlayContainer.setAttribute('aria-hidden', true);
+
+        const instructions = document.getElementById('details');
+        // overlayContainer.removeChild(instructions);
+        instructions.classList.add('hidden');
+
+        // from what I can tell this is applying the hidden class to the next instance of signOverlay
+        // causing the overlays to continuously stack next to one another without being re-hidden on close
+        signOverlay.classList.add('hidden');
+      }, 500)
+
+      console.log(overlayContainer);
+    })
+  }
+
+
+  // if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightening"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; }
 
 }) //End mypromise.then
