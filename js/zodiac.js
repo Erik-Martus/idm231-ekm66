@@ -108,7 +108,7 @@ const createSign = sign => {
   const paragraph = document.createElement('p');
 
   image.src = sign.image;
-  image.alt =`${sign.name} icon`;
+  image.alt = `${sign.name} icon`;
   paragraph.innerHTML = sign.name;
 
   button.appendChild(image);
@@ -179,7 +179,7 @@ closeBtn.addEventListener('click', function () {
 
 })
 
-let myPromise = new Promise ((resolve, reject) => {
+let myPromise = new Promise((resolve, reject) => {
   window.onload = () => {
     buildSigns();
     buildInfo();
@@ -202,30 +202,33 @@ myPromise.then((successMessage) => {
     const zodiacSigns = document.getElementById(`${idArray[i]}`);
     const colorFill = document.getElementById('colorFill');
 
-    zodiacSigns.addEventListener('mouseover', function() {
+    zodiacSigns.addEventListener('mouseover', function () {
       colorFill.classList.add(`${idArray[i]}`);
       colorFill.classList.add('expand');
-    })  
+    })
 
-    zodiacSigns.addEventListener('mouseout', function() {
+    zodiacSigns.addEventListener('mouseout', function () {
       colorFill.classList.remove('expand');
       colorFill.classList.add('remove');
 
-      colorFill.addEventListener('animationend', function() {
-        colorFill.classList.remove('remove');
-        colorFill.classList.remove(`${idArray[i]}`);
-      })
-    })
 
-    zodiacSigns.addEventListener('click', function() {
-      const overlay = document.createElement('section');
-      overlay.setAttribute('id', 'overlay');
-      overlay.classList.add('fadeIn');
-
-      console.log(overlay);
-      body.appendChild(overlay);
-      body.classList.add('noScroll');
+      // get rid of this, use a "timeout" instead (see "extras" examples
+      )
+    colorFill.addEventListener('animationend', function () {
+      colorFill.classList.remove('remove');
+      colorFill.classList.remove(`${idArray[i]}`);
     })
+  })
+
+zodiacSigns.addEventListener('click', function () {
+  const overlay = document.createElement('section');
+  overlay.setAttribute('id', 'overlay');
+  overlay.classList.add('fadeIn');
+
+  console.log(overlay);
+  body.appendChild(overlay);
+  body.classList.add('noScroll');
+})
   }
 
 
