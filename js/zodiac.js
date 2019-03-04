@@ -98,6 +98,7 @@ const signList = [fire, water, air, earth, metal, lightning, plasma, space, life
 
 const container = document.getElementById('signContainer');
 
+// Builds each sign button
 const createSign = sign => {
   const button = document.createElement('button');
 
@@ -117,6 +118,7 @@ const createSign = sign => {
   return button;
 };
 
+// Appends each sign button to their container
 const buildSigns = () => {
   signList.forEach(signName => {
     const signButton = createSign(signName);
@@ -127,6 +129,7 @@ const buildSigns = () => {
 const body = document.getElementById('body');
 const overlayContainer = document.getElementById('overlay');
 
+// Builds each sign info container
 const createInfo = sign => {
   const signOverlay = document.createElement('section');
   signOverlay.id = `${sign.name}Info`;
@@ -150,8 +153,6 @@ const createInfo = sign => {
   description.classList.add('overlayDesc');
   description.innerHTML = sign.description;
 
-  // <button id="closeBtn" class="overlayClose">CLOSE</button>
-
   const closeBtn = document.createElement('button');
   closeBtn.setAttribute('id', 'closeBtn');
   closeBtn.classList.add('overlayClose');
@@ -166,6 +167,7 @@ const createInfo = sign => {
   return signOverlay;
 }
 
+// Appends each sign info to the overlay container to be called later
 const buildInfo = () => {
   signList.forEach(signName => {
     const infoOverlay = createInfo(signName);
@@ -175,29 +177,27 @@ const buildInfo = () => {
 
 const closeBtn = document.getElementById('closeBtn');
 
+// ensures that window has loaded and that both the sign buttons and their info containers have been run
 let myPromise = new Promise((resolve, reject) => {
   window.onload = () => {
     buildSigns();
     buildInfo();
-    resolve('Sucess!');
+    resolve('Success!');
   };
 });
 
 myPromise.then((successMessage) => {
   const closeBtn = document.getElementsByClassName('overlayClose');
-  console.log(closeBtn);
-
 
 
   const findSigns = document.querySelectorAll('.sign');
 
   const idArray = []
 
+  // Puts each found sign inside idArray
   for (let i = 0; i < findSigns.length; i++) {
     idArray.push(findSigns[i].id)
   }
-
-  const skew = document.getElementById('skew');
 
   for (let i = 0; i < idArray.length; i++) {
     const zodiacSigns = document.getElementById(`${idArray[i]}`);
@@ -234,14 +234,11 @@ myPromise.then((successMessage) => {
   for (let i = 0; i < closeBtn.length; i++) {
 
     closeBtn[i].addEventListener('click', function () {
-      console.log(i + ':' + closeBtn[i].parentElement);
       overlayContainer.classList.remove('fadeIn');
       overlayContainer.classList.add('fadeOut');
       body.classList.remove('noScroll');
 
-      const signOverlay = document.getElementById(`${idArray[i]}Info`);
-      console.log(signOverlay);
-
+      // const signOverlay = document.getElementById(`${idArray[i]}Info`);
       window.setTimeout(() => {
         overlayContainer.classList.add('hidden');
         overlayContainer.classList.remove('fadeOut');
@@ -249,15 +246,14 @@ myPromise.then((successMessage) => {
         overlayContainer.setAttribute('aria-hidden', true);
 
         const instructions = document.getElementById('details');
-        // overlayContainer.removeChild(instructions);
         instructions.classList.add('hidden');
+        const overlays = document.querySelectorAll('.signInfo');
 
-        // from what I can tell this is applying the hidden class to the next instance of signOverlay
-        // causing the overlays to continuously stack next to one another without being re-hidden on close
-        signOverlay.classList.add('hidden');
+        for (let i = 0; i < overlays.length; i++) {
+          overlays[i].classList.add('hidden');
+        }
       }, 500)
 
-      console.log(overlayContainer);
     })
   }
 
