@@ -132,7 +132,9 @@ body {
     width: 100%;
     height: 100%;
     /* grid-template-rows: repeat(20, 5rem); */
-    grid-template: 10rem 3rem auto / repeat(8, 12.5%);
+    /* grid-template: 10rem 3rem auto / repeat(8, 12.5%); */
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: 10rem 3rem auto;
     grid-template-areas: 
         ". header header header header header header ."
         ". . . . . . . ."
@@ -340,6 +342,9 @@ div.bkgrContain {
  *                                          
  */
 
+button.sign:hover {
+    cursor: pointer;
+}
 
 button.sign img {
     border-radius: 50%;
@@ -355,7 +360,6 @@ button.sign:hover img {
     filter: drop-shadow(0 0.1rem 0.5rem rgba(0,0,0,.6));
     /* box-shadow: 0 0.05rem 0.25rem rgba(0,0,0,.6);  */
     opacity: 1;
-    cursor: pointer;
 }
 
 button.sign p {
@@ -390,7 +394,7 @@ button.sign:hover p {
 
 #water {
     grid-area: water;
-    top: 25%;
+    top: 2.3625rem;
 }
 
 /* #water:hover img {
@@ -399,7 +403,7 @@ button.sign:hover p {
 
 #air {
     grid-area: air;
-    right: 25%;
+    right: 2.3625rem;
 }
 
 #earth {
@@ -408,12 +412,12 @@ button.sign:hover p {
 
 #metal {
     grid-area: metal;
-    right: 25%;
+    right: 2.3625rem;
 }
 
 #lightning {
     grid-area: lightning;
-    bottom: 25%;
+    bottom: 2.3625rem;
 }
 
 #plasma {
@@ -422,12 +426,12 @@ button.sign:hover p {
 
 #void {
     grid-area: void;
-    bottom: 25%;
+    bottom: 2.3625rem;
 }
 
 #life {
     grid-area: life;
-    left: 25%;
+    left: 2.3625rem;
 }
 
 #aether {
@@ -436,12 +440,12 @@ button.sign:hover p {
 
 #light {
     grid-area: light;
-    left: 25%;
+    left: 2.3625rem;
 }
 
 #darkness {
     grid-area: darkness;
-    top: 25%;
+    top: 2.3625rem;
 }
 
 
