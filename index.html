@@ -14,6 +14,16 @@
     <header>
         <h1>Elemental Zodiac</h1>
         <!-- <h2>Before modern science it was said that the world was composed of certain elements in varying amounts.</h2> -->
+        <form id="birthdayForm">
+            <div class="formGroup">
+                <label for="birthday">Enter Your Birthday</label>
+                <input type="date" name="birthday" id="birthInput" placeholder="mm/dd/yyyy"
+                    pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+            </div>
+            <div class="formGroup">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
     </header>
 
     <div class="bkgrContain">

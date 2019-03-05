@@ -10,7 +10,7 @@ function sign(name, image, sound, description, date) {
 const fire = new sign(
   'fire',
   'img/icons/fire.svg',
-  'sounds/fire.mp3',
+  new Audio('../audio/01fire.mp3'),
   'Bright and dazzling. The foundation from which all other things came. Warmth in even the coldest of times. Wild when uncontrolled, but when controlled is one of the strongest forces, with the potential for destruction and creation.',
   'March 21 - April 19'
 );
@@ -18,7 +18,7 @@ const fire = new sign(
 const water = new sign(
   'water',
   'img/icons/water.svg',
-  'sounds/water.mp3',
+  new Audio('../audio/02water.mp3'),
   'Ever flowing and unstoppable. Constantly changing to adapt to whatever environment it finds itself a part of. Fearless and calming, it forms its own path when none other is presented.',
   'April 20 - May 20'
 );
@@ -26,70 +26,70 @@ const water = new sign(
 const air = new sign(
   'air',
   'img/icons/air.svg',
-  'sounds/air.mp3',
+  new Audio('../audio/03air.mp3'),
   'Soothing and crisp. Carries warth and cool through the world. Swirling it gently bends the world to its will. Gently carving serene sculptures from its environment.',
   'May 21 - June 20'
 );
 const earth = new sign(
   'earth',
   'img/icons/earth.svg',
-  'sounds/earth.mp3',
+  new Audio('../audio/04earth.mp3'),
   'Sturdy and unmoving. Forged from structure and balance it provides ground for everything under the sun. Stubborn at times, but can be slowly molded into breathtaking monuments.',
   'June 21 - July 22'
 );
 const metal = new sign(
   'metal',
   'img/icons/metal.svg',
-  'sounds/metal.mp3',
+  new Audio('../audio/05metal.mp3'),
   'TBD',
   'July 23 - August 22'
 );
 const lightning = new sign(
   'lightning',
   'img/icons/lightning.svg',
-  'sounds/lightning.mp3',
+  new Audio('../audio/06lightning.mp3'),
   'Fierce and full of awesome power. Visible for all but a moment, but with untameable strength.',
   'August 23 - September 22'
 );
 const plasma = new sign(
   'plasma',
   'img/icons/plasma.svg',
-  'sounds/plasma.mp3',
+  new Audio('../audio/07plasma.mp3'),
   'TBD',
   'September 23 - October 23'
 );
 const space = new sign(
   'void',
   'img/icons/void.svg',
-  'sounds/void.mp3',
+  new Audio('../audio/08void.mp3'),
   'Endless and mysterious. Much is hidden in the vast expanse, but that only peaks curiosity. The inner depths cause self searching and self reflection of what it is to be ourselves.',
   'October 24 - November 21'
 );
 const life = new sign(
   'life',
   'img/icons/life.svg',
-  'sounds/life.mp3',
+  new Audio('../audio/09life.mp3'),
   'TBD',
   'November 22 - December 21'
 );
 const aether = new sign(
   'aether',
   'img/icons/aether.svg',
-  'sounds/aether.mp3',
+  new Audio('../audio/10aether.mp3'),
   'The material out of reach to man. Heavenly and alluring it draws all towards it, and at the same time is the source of all things. Through it all things are set in motion and are brought into existence.',
   'December 22 - January 19'
 );
 const light = new sign(
   'light',
   'img/icons/light.svg',
-  'sounds/light.mp3',
+  new Audio('../audio/11light.mp3'),
   'Illuminating and calming. Both natural and man made it provides a clear view of the world. Allows for clear thought and study.',
   'January 20 - February 18'
 );
 const darkness = new sign(
   'darkness',
   'img/icons/darkness.svg',
-  'sounds/darkness.mp3',
+  new Audio('../audio/12darkness.mp3'),
   'TBD',
   'February 19 - March 20'
 );
@@ -175,6 +175,10 @@ const buildInfo = () => {
   })
 }
 
+const playSound = (whichSound) => {
+  sign.sound.play();
+}
+
 const closeBtn = document.getElementById('closeBtn');
 
 // ensures that window has loaded and that both the sign buttons and their info containers have been run
@@ -228,6 +232,10 @@ myPromise.then((successMessage) => {
 
       body.appendChild(overlay);
       body.classList.add('noScroll');
+
+      // console.log(sign.sound);
+
+      playSound(idArray[i].sound);
     })
   }
 
@@ -257,7 +265,49 @@ myPromise.then((successMessage) => {
     })
   }
 
+  const submitBirthday = (event) => {
+    event.preventDefault();
 
-  // if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightening"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; }
+    const birthdayInput = document.getElementById('birthInput');
+    console.log(birthdayInput);
+    const birthdayValue = birthdayInput.value;
+
+    let whichMonth, whichDayOfMonth;
+
+    if (birthdayValue.includes('/')) {
+      const dateArray = birthdayValue.split('/');
+      whichMonth = dateArray[0];
+      whichDayOfMonth = dateArray[0];
+    } else {
+      const birthday = new Date(`${birthdayValue}T00:00`);
+      whichMonth = birthday.getMonth() + 1;
+      whichDayOfMonth = birthday.getDate();
+    }
+
+    console.log('month: ', whichMonth);
+    console.log('day: ', whichDayOfMonth);
+
+    if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightning"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; }
+
+    console.log(AstroSign);
+
+    overlayContainer.classList.remove('hidden');
+    overlayContainer.classList.add('fadeIn');
+
+    const signOverlay = document.getElementById(`${AstroSign}Info`);
+    signOverlay.classList.remove('hidden');
+    console.log(signOverlay);
+
+    body.appendChild(overlay);
+    body.classList.add('noScroll');
+
+
+  }
+
+  birthdayForm.addEventListener('submit', submitBirthday);
+
+
+
+
 
 }) //End mypromise.then
