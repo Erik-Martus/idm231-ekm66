@@ -26,7 +26,7 @@ const water = new sign(
 const air = new sign(
   'air',
   'img/icons/air.svg',
-  '../audio/03air.mp3',
+  'audio/03air.mp3',
   'Soothing and crisp. Carries warth and cool through the world. Swirling it gently bends the world to its will. Gently carving serene sculptures from its environment.',
   'May 21 - June 20'
 );
@@ -175,10 +175,6 @@ const buildInfo = () => {
   })
 }
 
-const playSound = () => {
-  sign.sound.play();
-}
-
 const closeBtn = document.getElementById('closeBtn');
 
 // ensures that window has loaded and that both the sign buttons and their info containers have been run
@@ -230,19 +226,41 @@ myPromise.then((successMessage) => {
 
       const signOverlay = document.getElementById(`${idArray[i]}Info`);
       signOverlay.classList.remove('hidden');
-      console.log(signOverlay);
 
       body.appendChild(overlay);
       body.classList.add('noScroll');
-
 
       const playSound = (whichSound) => {
         whichSound.play();
       }
 
-      console.log(idArray[i].sound);
+      if (signOverlay.id === 'fireInfo') {
+        playSound(fire.sound);
+      } else if (signOverlay.id === 'waterInfo') {
+        playSound(water.sound);
+      } else if (signOverlay.id === 'airInfo') {
+        playSound(air.sound);
+      } else if (signOverlay.id === 'earthInfo') {
+        playSound(earth.sound);
+      } else if (signOverlay.id === 'metalInfo') {
+        playSound(metal.sound);
+      } else if (signOverlay.id === 'lightningInfo') {
+        playSound(lightning.sound);
+      } else if (signOverlay.id === 'plasmaInfo') {
+        playSound(plasma.sound);
+      } else if (signOverlay.id === 'voidInfo') {
+        playSound(space.sound);
+      } else if (signOverlay.id === 'lifeInfo') {
+        playSound(life.sound);
+      } else if (signOverlay.id === 'aetherInfo') {
+        playSound(aether.sound);
+      } else if (signOverlay.id === 'lightInfo') {
+        playSound(light.sound);
+      } else if (signOverlay.id === 'darknessInfo') {
+        playSound(darkness.sound);
+      }
 
-      playSound(fire.sound);
+      // playSound(fire.sound);
     })
   }
 
@@ -308,7 +326,31 @@ myPromise.then((successMessage) => {
     body.appendChild(overlay);
     body.classList.add('noScroll');
 
-
+    if (signOverlay.id === 'fireInfo') {
+      playSound(fire.sound);
+    } else if (signOverlay.id === 'waterInfo') {
+      playSound(water.sound);
+    } else if (signOverlay.id === 'airInfo') {
+      playSound(air.sound);
+    } else if (signOverlay.id === 'earthInfo') {
+      playSound(earth.sound);
+    } else if (signOverlay.id === 'metalInfo') {
+      playSound(metal.sound);
+    } else if (signOverlay.id === 'lightningInfo') {
+      playSound(lightning.sound);
+    } else if (signOverlay.id === 'plasmaInfo') {
+      playSound(plasma.sound);
+    } else if (signOverlay.id === 'voidInfo') {
+      playSound(space.sound);
+    } else if (signOverlay.id === 'lifeInfo') {
+      playSound(life.sound);
+    } else if (signOverlay.id === 'aetherInfo') {
+      playSound(aether.sound);
+    } else if (signOverlay.id === 'lightInfo') {
+      playSound(light.sound);
+    } else if (signOverlay.id === 'darknessInfo') {
+      playSound(darkness.sound);
+    }
   }
 
   birthdayForm.addEventListener('submit', submitBirthday);
