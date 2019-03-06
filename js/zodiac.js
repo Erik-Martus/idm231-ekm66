@@ -2,7 +2,7 @@
 function sign(name, image, sound, description, date) {
   this.name = name;
   this.image = image;
-  this.sound = sound;
+  this.sound = new Audio(sound);
   this.description = description;
   this.date = date;
 }
@@ -10,7 +10,7 @@ function sign(name, image, sound, description, date) {
 const fire = new sign(
   'fire',
   'img/icons/fire.svg',
-  new Audio('../audio/01fire.mp3'),
+  'audio/01fire.mp3',
   'Bright and dazzling. The foundation from which all other things came. Warmth in even the coldest of times. Wild when uncontrolled, but when controlled is one of the strongest forces, with the potential for destruction and creation.',
   'March 21 - April 19'
 );
@@ -18,7 +18,7 @@ const fire = new sign(
 const water = new sign(
   'water',
   'img/icons/water.svg',
-  new Audio('../audio/02water.mp3'),
+  'audio/02water.mp3',
   'Ever flowing and unstoppable. Constantly changing to adapt to whatever environment it finds itself a part of. Fearless and calming, it forms its own path when none other is presented.',
   'April 20 - May 20'
 );
@@ -26,70 +26,70 @@ const water = new sign(
 const air = new sign(
   'air',
   'img/icons/air.svg',
-  new Audio('../audio/03air.mp3'),
+  '../audio/03air.mp3',
   'Soothing and crisp. Carries warth and cool through the world. Swirling it gently bends the world to its will. Gently carving serene sculptures from its environment.',
   'May 21 - June 20'
 );
 const earth = new sign(
   'earth',
   'img/icons/earth.svg',
-  new Audio('../audio/04earth.mp3'),
+  'audio/04earth.mp3',
   'Sturdy and unmoving. Forged from structure and balance it provides ground for everything under the sun. Stubborn at times, but can be slowly molded into breathtaking monuments.',
   'June 21 - July 22'
 );
 const metal = new sign(
   'metal',
   'img/icons/metal.svg',
-  new Audio('../audio/05metal.mp3'),
+  'audio/05metal.mp3',
   'TBD',
   'July 23 - August 22'
 );
 const lightning = new sign(
   'lightning',
   'img/icons/lightning.svg',
-  new Audio('../audio/06lightning.mp3'),
+  'audio/06lightning.mp3',
   'Fierce and full of awesome power. Visible for all but a moment, but with untameable strength.',
   'August 23 - September 22'
 );
 const plasma = new sign(
   'plasma',
   'img/icons/plasma.svg',
-  new Audio('../audio/07plasma.mp3'),
+  'audio/07plasma.mp3',
   'TBD',
   'September 23 - October 23'
 );
 const space = new sign(
   'void',
   'img/icons/void.svg',
-  new Audio('../audio/08void.mp3'),
+  'audio/08void.mp3',
   'Endless and mysterious. Much is hidden in the vast expanse, but that only peaks curiosity. The inner depths cause self searching and self reflection of what it is to be ourselves.',
   'October 24 - November 21'
 );
 const life = new sign(
   'life',
   'img/icons/life.svg',
-  new Audio('../audio/09life.mp3'),
+  'audio/09life.mp3',
   'TBD',
   'November 22 - December 21'
 );
 const aether = new sign(
   'aether',
   'img/icons/aether.svg',
-  new Audio('../audio/10aether.mp3'),
+  'audio/10aether.mp3',
   'The material out of reach to man. Heavenly and alluring it draws all towards it, and at the same time is the source of all things. Through it all things are set in motion and are brought into existence.',
   'December 22 - January 19'
 );
 const light = new sign(
   'light',
   'img/icons/light.svg',
-  new Audio('../audio/11light.mp3'),
+  'audio/11light.mp3',
   'Illuminating and calming. Both natural and man made it provides a clear view of the world. Allows for clear thought and study.',
   'January 20 - February 18'
 );
 const darkness = new sign(
   'darkness',
   'img/icons/darkness.svg',
-  new Audio('../audio/12darkness.mp3'),
+  'audio/12darkness.mp3',
   'TBD',
   'February 19 - March 20'
 );
@@ -175,7 +175,7 @@ const buildInfo = () => {
   })
 }
 
-const playSound = (whichSound) => {
+const playSound = () => {
   sign.sound.play();
 }
 
@@ -193,15 +193,17 @@ let myPromise = new Promise((resolve, reject) => {
 myPromise.then((successMessage) => {
   const closeBtn = document.getElementsByClassName('overlayClose');
 
-
+  // Finds each sign button
   const findSigns = document.querySelectorAll('.sign');
 
+  // Array of each button id to be referenced by event listeners
   const idArray = []
 
-  // Puts each found sign inside idArray
+  // Puts each found sign id inside idArray
   for (let i = 0; i < findSigns.length; i++) {
     idArray.push(findSigns[i].id)
   }
+
 
   for (let i = 0; i < idArray.length; i++) {
     const zodiacSigns = document.getElementById(`${idArray[i]}`);
@@ -233,9 +235,14 @@ myPromise.then((successMessage) => {
       body.appendChild(overlay);
       body.classList.add('noScroll');
 
-      // console.log(sign.sound);
 
-      playSound(idArray[i].sound);
+      const playSound = (whichSound) => {
+        whichSound.play();
+      }
+
+      console.log(idArray[i].sound);
+
+      playSound(fire.sound);
     })
   }
 
