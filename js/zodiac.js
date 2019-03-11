@@ -294,31 +294,18 @@ myPromise.then((successMessage) => {
           overlays[i].classList.add('hidden');
         }
 
-        if (signOverlay.id === 'fireInfo') {
-          stopSound(fire.sound);
-        } else if (signOverlay.id === 'waterInfo') {
-          stopSound(water.sound);
-        } else if (signOverlay.id === 'airInfo') {
-          stopSound(air.sound);
-        } else if (signOverlay.id === 'earthInfo') {
-          stopSound(earth.sound);
-        } else if (signOverlay.id === 'metalInfo') {
-          stopSound(metal.sound);
-        } else if (signOverlay.id === 'lightningInfo') {
-          stopSound(lightning.sound);
-        } else if (signOverlay.id === 'plasmaInfo') {
-          stopSound(plasma.sound);
-        } else if (signOverlay.id === 'voidInfo') {
-          stopSound(space.sound);
-        } else if (signOverlay.id === 'lifeInfo') {
-          stopSound(life.sound);
-        } else if (signOverlay.id === 'aetherInfo') {
-          stopSound(aether.sound);
-        } else if (signOverlay.id === 'lightInfo') {
-          stopSound(light.sound);
-        } else if (signOverlay.id === 'darknessInfo') {
-          stopSound(darkness.sound);
-        }
+        stopSound(fire.sound);
+        stopSound(water.sound);
+        stopSound(air.sound);
+        stopSound(earth.sound);
+        stopSound(metal.sound);
+        stopSound(lightning.sound)
+        stopSound(plasma.sound);
+        stopSound(space.sound);
+        stopSound(life.sound);
+        stopSound(aether.sound);
+        stopSound(light.sound);
+        stopSound(darkness.sound);
       }, 500)
 
     })
