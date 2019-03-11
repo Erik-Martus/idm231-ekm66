@@ -177,6 +177,17 @@ const buildInfo = () => {
 
 const closeBtn = document.getElementById('closeBtn');
 
+// Play sound file
+const playSound = (whichSound) => {
+  whichSound.play();
+}
+
+// Stop sound file
+const stopSound = (whichSound) => {
+  whichSound.pause();
+  whichSound.currentTime = 0.0;
+}
+
 // ensures that window has loaded and that both the sign buttons and their info containers have been run
 let myPromise = new Promise((resolve, reject) => {
   window.onload = () => {
@@ -230,10 +241,6 @@ myPromise.then((successMessage) => {
       body.appendChild(overlay);
       body.classList.add('noScroll');
 
-      const playSound = (whichSound) => {
-        whichSound.play();
-      }
-
       if (signOverlay.id === 'fireInfo') {
         playSound(fire.sound);
       } else if (signOverlay.id === 'waterInfo') {
@@ -270,8 +277,9 @@ myPromise.then((successMessage) => {
       overlayContainer.classList.remove('fadeIn');
       overlayContainer.classList.add('fadeOut');
       body.classList.remove('noScroll');
+      console.log(water.sound);
+      stopSound(water.sound);
 
-      // const signOverlay = document.getElementById(`${idArray[i]}Info`);
       window.setTimeout(() => {
         overlayContainer.classList.add('hidden');
         overlayContainer.classList.remove('fadeOut');
@@ -284,6 +292,32 @@ myPromise.then((successMessage) => {
 
         for (let i = 0; i < overlays.length; i++) {
           overlays[i].classList.add('hidden');
+        }
+
+        if (signOverlay.id === 'fireInfo') {
+          stopSound(fire.sound);
+        } else if (signOverlay.id === 'waterInfo') {
+          stopSound(water.sound);
+        } else if (signOverlay.id === 'airInfo') {
+          stopSound(air.sound);
+        } else if (signOverlay.id === 'earthInfo') {
+          stopSound(earth.sound);
+        } else if (signOverlay.id === 'metalInfo') {
+          stopSound(metal.sound);
+        } else if (signOverlay.id === 'lightningInfo') {
+          stopSound(lightning.sound);
+        } else if (signOverlay.id === 'plasmaInfo') {
+          stopSound(plasma.sound);
+        } else if (signOverlay.id === 'voidInfo') {
+          stopSound(space.sound);
+        } else if (signOverlay.id === 'lifeInfo') {
+          stopSound(life.sound);
+        } else if (signOverlay.id === 'aetherInfo') {
+          stopSound(aether.sound);
+        } else if (signOverlay.id === 'lightInfo') {
+          stopSound(light.sound);
+        } else if (signOverlay.id === 'darknessInfo') {
+          stopSound(darkness.sound);
         }
       }, 500)
 
@@ -326,6 +360,9 @@ myPromise.then((successMessage) => {
     body.appendChild(overlay);
     body.classList.add('noScroll');
 
+    console.log(signOverlay.id);
+    console.log(fire.sound);
+
     if (signOverlay.id === 'fireInfo') {
       playSound(fire.sound);
     } else if (signOverlay.id === 'waterInfo') {
@@ -354,9 +391,5 @@ myPromise.then((successMessage) => {
   }
 
   birthdayForm.addEventListener('submit', submitBirthday);
-
-
-
-
 
 }) //End mypromise.then
