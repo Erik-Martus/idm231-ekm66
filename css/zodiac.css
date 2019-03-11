@@ -198,10 +198,6 @@ div.bkgrContain {
     transition: all .5s ease-in-out;
 }
 
-.skewfire {
-    background-color: red;
-}
-
 @keyframes colorExpand {
     from {
         height: 0%;
@@ -240,68 +236,51 @@ div.bkgrContain {
 
 #colorFill.fire {
     background-color: red;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.water {
     background-color: blue;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.air {
     background-color: silver;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.earth {
     background-color: green;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.metal {
     background-color: rgb(105, 105, 105);
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.lightning {
     background-color: yellow;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.plasma {
     background-color: purple;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.void {
     background-color: darkolivegreen;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.life {
     background-color: lightgoldenrodyellow;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.aether {
     background-color: lavender;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.light {
     background-color: oldlace;
-    /* animation: var(--colorExpand); */
 }
 
 #colorFill.darkness {
     background-color: darkcyan;
-    /* animation: var(--colorExpand); */
 }
-
-/* Can't get the class to smoothly remove itself through JS */
-/* .remove {
-    animation: colorRemove .5s ease-in-out reverse;
-} */
 
 /***
  *     ██████╗██╗██████╗  ██████╗██╗     ███████╗
