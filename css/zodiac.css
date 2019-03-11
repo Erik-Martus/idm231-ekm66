@@ -622,10 +622,40 @@ button.sign:hover p {
 
 .formGroup {
     padding-right: 2rem;
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .formGroup:last-of-type {
     padding-right: 0;
+}
+
+input[type=date] {
+    text-align: right;
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: .3rem;
+    border: 2px solid black;
+    font-size: ;
+    font: normal normal .9rem/1.5rem 'OpenSans', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+};
+
+
+/* Form Invalidation */
+:invalid {
+    box-shadow: none;
+}
+  
+:-moz-submit-invalid {
+    box-shadow: none;
+}
+  
+:-moz-ui-invalid {
+    box-shadow: none;
 }
 
 
