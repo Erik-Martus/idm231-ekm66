@@ -266,8 +266,6 @@ myPromise.then((successMessage) => {
       } else if (signOverlay.id === 'darknessInfo') {
         playSound(darkness.sound);
       }
-
-      // playSound(fire.sound);
     })
   }
 
@@ -318,22 +316,23 @@ myPromise.then((successMessage) => {
     console.log(birthdayInput);
     const birthdayValue = birthdayInput.value;
 
+    console.log(birthdayValue)
     let whichMonth, whichDayOfMonth;
 
     if (birthdayValue.includes('/')) {
       const dateArray = birthdayValue.split('/');
       whichMonth = dateArray[0];
-      whichDayOfMonth = dateArray[0];
+      whichDayOfMonth = dateArray[1];
     } else {
       const birthday = new Date(`${birthdayValue}T00:00`);
       whichMonth = birthday.getMonth() + 1;
       whichDayOfMonth = birthday.getDate();
+      console.log(whichMonth, whichDayOfMonth);
     }
 
-    console.log('month: ', whichMonth);
-    console.log('day: ', whichDayOfMonth);
-
-    if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightning"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; }
+    if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightning"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; } else {
+      console.log('invalid date');
+    }
 
     console.log(AstroSign);
 
