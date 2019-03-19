@@ -653,14 +653,15 @@ button.sign:hover p {
 }
 
 input[type=date] {
-    text-align: right;
+    text-align: center;
     height: 2rem;
     padding: 0 1rem;
     border-radius: .3rem;
     border: 2px solid black;
-    font-size: ;
+    /* font-size: ; */
     font: normal normal .9rem/1.5rem 'Montserrat', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
+    width: 8rem;
 }
 
 input[type=date]:hover {
@@ -679,6 +680,10 @@ input[type=date]:hover {
   
 :-moz-ui-invalid {
     box-shadow: none;
+}
+
+.invalid {
+    border: 5px solid red;
 }
 
 

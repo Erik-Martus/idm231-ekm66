@@ -318,6 +318,7 @@ myPromise.then((successMessage) => {
 
     console.log(birthdayValue)
     let whichMonth, whichDayOfMonth;
+    let validity;
 
     if (birthdayValue.includes('/')) {
       const dateArray = birthdayValue.split('/');
@@ -331,50 +332,58 @@ myPromise.then((successMessage) => {
     }
 
     if ((whichMonth == 12 && whichDayOfMonth >= 22) || (whichMonth == 1 && whichDayOfMonth <= 19)) { AstroSign = "aether"; } else if ((whichMonth == 11 && whichDayOfMonth >= 22) || (whichMonth == 12 && whichDayOfMonth <= 21)) { AstroSign = "life"; } else if ((whichMonth == 10 && whichDayOfMonth >= 24) || (whichMonth == 11 && whichDayOfMonth <= 21)) { AstroSign = "space"; } else if ((whichMonth == 9 && whichDayOfMonth >= 23) || (whichMonth == 10 && whichDayOfMonth <= 23)) { AstroSign = "plasma"; } else if ((whichMonth == 8 && whichDayOfMonth >= 23) || (whichMonth == 9 && whichDayOfMonth <= 22)) { AstroSign = "lightning"; } else if ((whichMonth == 7 && whichDayOfMonth >= 23) || (whichMonth == 8 && whichDayOfMonth <= 22)) { AstroSign = "metal"; } else if ((whichMonth == 6 && whichDayOfMonth >= 22) || (whichMonth == 7 && whichDayOfMonth <= 22)) { AstroSign = "earth"; } else if ((whichMonth == 5 && whichDayOfMonth >= 21) || (whichMonth == 6 && whichDayOfMonth <= 21)) { AstroSign = "air"; } else if ((whichMonth == 4 && whichDayOfMonth >= 20) || (whichMonth == 5 && whichDayOfMonth <= 20)) { AstroSign = "water"; } else if ((whichMonth == 3 && whichDayOfMonth >= 21) || (whichMonth == 4 && whichDayOfMonth <= 19)) { AstroSign = "fire"; } else if ((whichMonth == 2 && whichDayOfMonth >= 19) || (whichMonth == 3 && whichDayOfMonth <= 20)) { AstroSign = "darkness"; } else if ((whichMonth == 1 && whichDayOfMonth >= 20) || (whichMonth == 2 && whichDayOfMonth <= 18)) { AstroSign = "life"; } else {
-      console.log('invalid date');
+      validity === false;
+      console.log('TCL: submitBirthday -> validity', validity)
     }
 
-    console.log(AstroSign);
+    if (validity === false) {
+      birthdayInput.classList.add('invalid');
+      console.log('TCL: birthdayInput', birthdayInput)
+    } else {
+      console.log(AstroSign);
 
-    overlayContainer.classList.remove('hidden');
-    overlayContainer.classList.add('fadeIn');
+      overlayContainer.classList.remove('hidden');
+      overlayContainer.classList.add('fadeIn');
 
-    const signOverlay = document.getElementById(`${AstroSign}Info`);
-    signOverlay.classList.remove('hidden');
-    console.log(signOverlay);
+      const signOverlay = document.getElementById(`${AstroSign}Info`);
+      signOverlay.classList.remove('hidden');
+      console.log(signOverlay);
 
-    body.appendChild(overlay);
-    body.classList.add('noScroll');
+      body.appendChild(overlay);
+      body.classList.add('noScroll');
 
-    console.log(signOverlay.id);
-    console.log(fire.sound);
+      console.log(signOverlay.id);
+      console.log(fire.sound);
 
-    if (signOverlay.id === 'fireInfo') {
-      playSound(fire.sound);
-    } else if (signOverlay.id === 'waterInfo') {
-      playSound(water.sound);
-    } else if (signOverlay.id === 'airInfo') {
-      playSound(air.sound);
-    } else if (signOverlay.id === 'earthInfo') {
-      playSound(earth.sound);
-    } else if (signOverlay.id === 'metalInfo') {
-      playSound(metal.sound);
-    } else if (signOverlay.id === 'lightningInfo') {
-      playSound(lightning.sound);
-    } else if (signOverlay.id === 'plasmaInfo') {
-      playSound(plasma.sound);
-    } else if (signOverlay.id === 'voidInfo') {
-      playSound(space.sound);
-    } else if (signOverlay.id === 'lifeInfo') {
-      playSound(life.sound);
-    } else if (signOverlay.id === 'aetherInfo') {
-      playSound(aether.sound);
-    } else if (signOverlay.id === 'lightInfo') {
-      playSound(light.sound);
-    } else if (signOverlay.id === 'darknessInfo') {
-      playSound(darkness.sound);
+      if (signOverlay.id === 'fireInfo') {
+        playSound(fire.sound);
+      } else if (signOverlay.id === 'waterInfo') {
+        playSound(water.sound);
+      } else if (signOverlay.id === 'airInfo') {
+        playSound(air.sound);
+      } else if (signOverlay.id === 'earthInfo') {
+        playSound(earth.sound);
+      } else if (signOverlay.id === 'metalInfo') {
+        playSound(metal.sound);
+      } else if (signOverlay.id === 'lightningInfo') {
+        playSound(lightning.sound);
+      } else if (signOverlay.id === 'plasmaInfo') {
+        playSound(plasma.sound);
+      } else if (signOverlay.id === 'voidInfo') {
+        playSound(space.sound);
+      } else if (signOverlay.id === 'lifeInfo') {
+        playSound(life.sound);
+      } else if (signOverlay.id === 'aetherInfo') {
+        playSound(aether.sound);
+      } else if (signOverlay.id === 'lightInfo') {
+        playSound(light.sound);
+      } else if (signOverlay.id === 'darknessInfo') {
+        playSound(darkness.sound);
+      }
     }
+
   }
+
 
   birthdayForm.addEventListener('submit', submitBirthday);
 
