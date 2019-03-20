@@ -228,12 +228,12 @@ myPromise.then(successMessage => {
     const zodiacSigns = document.getElementById(`${idArray[i]}`);
     const colorFill = document.getElementById("colorFill");
 
-    zodiacSigns.addEventListener("mouseenter", function() {
+    zodiacSigns.addEventListener("mouseenter", function () {
       colorFill.classList.add(`${idArray[i]}`);
       colorFill.classList.add("expand");
     });
 
-    zodiacSigns.addEventListener("mouseleave", function() {
+    zodiacSigns.addEventListener("mouseleave", function () {
       colorFill.classList.remove("expand");
       colorFill.classList.add("remove");
 
@@ -243,7 +243,7 @@ myPromise.then(successMessage => {
       }, 500);
     });
 
-    zodiacSigns.addEventListener("click", function() {
+    zodiacSigns.addEventListener("click", function () {
       overlayContainer.classList.remove("hidden");
       overlayContainer.classList.add("fadeIn");
 
@@ -282,7 +282,7 @@ myPromise.then(successMessage => {
   }
 
   for (let i = 0; i < closeBtn.length; i++) {
-    closeBtn[i].addEventListener("click", function() {
+    closeBtn[i].addEventListener("click", function () {
       overlayContainer.classList.remove("fadeIn");
       overlayContainer.classList.add("fadeOut");
       body.classList.remove("noScroll");
@@ -325,7 +325,6 @@ myPromise.then(successMessage => {
     const birthdayValue = birthdayInput.value;
 
     let whichMonth, whichDayOfMonth;
-    let validity;
 
     if (birthdayValue.includes("/")) {
       const dateArray = birthdayValue.split("/");
@@ -398,14 +397,18 @@ myPromise.then(successMessage => {
     ) {
       AstroSign = "life";
     } else {
-      validity === false;
-      console.log("TCL: submitBirthday -> validity", validity);
+      AstroSign = "error"
     }
 
-    if (validity === false) {
-      birthdayInput.classList.add("invalid");
-      console.log("TCL: birthdayInput", birthdayInput);
+    if (AstroSign === "error") {
+      birthdayInput.classList.add("invalid", "invalidShake");
+
+      birthdayInput.addEventListener("animationend", function () {
+        birthdayInput.classList.remove("invalidShake");
+      });
     } else {
+      birthdayInput.classList.remove("invalid");
+
       overlayContainer.classList.remove("hidden");
       overlayContainer.classList.add("fadeIn");
 
