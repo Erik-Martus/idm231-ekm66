@@ -16,9 +16,10 @@
         <!-- <h2>Before modern science it was said that the world was composed of certain elements in varying amounts.</h2> -->
         <form id="birthdayForm">
             <div class="formGroup">
-                <label for="birthday">Enter Your Birthday:</label>
-                <input type="date" name="birthday" id="birthInput" placeholder="mm/dd/yyyy"
-                    pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+                <label for="birthInput">Enter Your Birthday:</label>
+                <input type="date" name="birthday" id="birthInput" required>
+                <!-- placeholder="mm/dd/yyyy"
+                    pattern="\d{1,2}/\d{1,2}/\d{4}" -->
             </div>
             <div class="formGroup">
                 <input type="submit" value="Submit">
@@ -35,10 +36,6 @@
     <main id="main">
 
         <div id="signContainer">
-
-            <!-- Spinning elements in center of the circle -->
-            <div class="spin" id="spin01"></div>
-            <div class="spin" id="spin02"></div>
         </div>
         <!-- End #signContainer -->
 
@@ -47,8 +44,16 @@
         <section id="details" class="infoContainer">
             <h2 class="overlayHeading">WELCOME</h2>
             <h3 class="overlaySubhead">Discover the Element Associated with Your Birthday</h3>
+
+            <!-- Method 1 -->
             <img src="img/icons/fire.svg" alt="Fire Icon" class="overlayMethod">
             <p class="overlayDesc">Click on Any of the Element Icons</p>
+
+            <!-- Method 2 -->
+            <div class="overlayMethod2">
+                <p>mm/dd/yyyy</p>
+            </div>
+            <p class="overlayDesc2">Pick a Date, Past, Present, or Future</p>
 
             <button id="closeBtn" class="overlayClose closeBtn">CLOSE</button>
         </section>
