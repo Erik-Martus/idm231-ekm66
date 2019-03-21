@@ -1,12 +1,10 @@
-/***
- *    ██████╗ ███████╗███████╗███████╗████████╗
- *    ██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝
- *    ██████╔╝█████╗  ███████╗█████╗     ██║   
- *    ██╔══██╗██╔══╝  ╚════██║██╔══╝     ██║   
- *    ██║  ██║███████╗███████║███████╗   ██║   
- *    ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   
- *                                             
- */
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *          RESET SHEET
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -16,7 +14,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
@@ -37,15 +36,13 @@ table {
   border-spacing: 0;
 }
 
-/***
- *    ███████╗ ██████╗ ███╗   ██╗████████╗███████╗
- *    ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔════╝
- *    █████╗  ██║   ██║██╔██╗ ██║   ██║   ███████╗
- *    ██╔══╝  ██║   ██║██║╚██╗██║   ██║   ╚════██║
- *    ██║     ╚██████╔╝██║ ╚████║   ██║   ███████║
- *    ╚═╝      ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝
- *                                                
- */
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *           CUSTOM FONTS
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 @font-face {
   font-family: "montserrat";
@@ -78,15 +75,13 @@ table {
   font-weight: normal;
 }
 
-/***
- *    ████████╗ █████╗  ██████╗ ███████╗
- *    ╚══██╔══╝██╔══██╗██╔════╝ ██╔════╝
- *       ██║   ███████║██║  ███╗███████╗
- *       ██║   ██╔══██║██║   ██║╚════██║
- *       ██║   ██║  ██║╚██████╔╝███████║
- *       ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
- *                                      
- */
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *          BASIC TAGS
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 :root {
   --colorExpand: colorExpand 0.2s ease-in-out forwards;
@@ -105,23 +100,24 @@ table {
 }
 
 html {
+  background: #f3f3f3;
   font-size: 100%;
   height: 100%;
-  background: #f3f3f3;
 }
 
 body {
-  position: relative;
-  display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 15rem auto;
-  grid-row-gap: 1rem;
+
+  display: grid;
   grid-template-areas:
     ". header ."
     ". main .";
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 15rem auto;
+  grid-row-gap: 1rem;
   overflow-x: hidden;
+
   font: normal 500 1rem/1.5rem "Montserrat", Helvetica, Arial, sans-serif;
 }
 
@@ -131,27 +127,31 @@ h1, h2 {
 
 h1 {
   font: 5rem/5rem "Potra", Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
   margin: 1.5rem 0 1.5rem;
+  text-transform: uppercase;
 }
 
 h2 {
-  font: bolder normal 600 1.5rem/2.25rem "Montserrat", Helvetica, Arial,
-    sans-serif;
+  font: normal normal 600 1.5rem/2.25rem "Montserrat", Helvetica, Arial, sans-serif;
 }
 
 header {
   grid-area: header;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 main {
   grid-area: main;
 }
 
-/* Diagonal background box */
+/* 
+  * -------------------------------------
+  *        DIAGONAL BACKGROUND
+  * -------------------------------------
+*/
 div.bkgrContain {
   height: 100%;
   grid-area: 1 / 1 / -1 / -1;
@@ -169,14 +169,18 @@ div.bkgrContain {
   transform-origin: top left;
   transition: all 0.5s ease-in-out;
   overflow: hidden;
-  z-index: -10;
+  z-index: -10; /* Allows for all other objects to flow on top of the element */
+  box-shadow: 0 0px 15px 0px rgba(0, 0, 0, 0.6);
 }
 
 .skewDefault {
-  background-color: #aeaeae;
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(180deg, #ffffff, #abbaab); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(180deg, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   transition: all 0.5s ease-in-out;
 }
 
+/*  * Overlay Animations */
 @keyframes colorExpand {
   from {
     height: 0%;
@@ -195,6 +199,7 @@ div.bkgrContain {
   }
 }
 
+/* *ColorFill adds gradient overlay to the background on element hover */
 #colorFill {
   width: 200%;
   transform: skewY(15deg) rotate(-15deg);
@@ -212,168 +217,134 @@ div.bkgrContain {
 }
 
 #colorFill.fire {
-  background: rgb(246,211,101);
-  background: -moz-linear-gradient(180deg, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
-  background: linear-gradient(180deg, rgba(246,211,101,1) 0%, rgba(253,160,133,1) 100%);
+  background: rgb(246, 211, 101);
+  background: -moz-linear-gradient(180deg, rgba(246, 211, 101, 1) 0%, rgba(253, 160, 133, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(246, 211, 101, 1) 0%, rgba(253, 160, 133, 1) 100%);
+  background: linear-gradient(180deg, rgba(246, 211, 101, 1) 0%, rgba(253, 160, 133, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f6d365",endColorstr="#fda085",GradientType=1);
 }
 
 #colorFill.water {
-  background: rgb(72,198,239);
-  background: -moz-linear-gradient(180deg, rgba(72,198,239,1) 0%, rgba(111,134,214,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(72,198,239,1) 0%, rgba(111,134,214,1) 100%);
-  background: linear-gradient(180deg, rgba(72,198,239,1) 0%, rgba(111,134,214,1) 100%);
+  background: rgb(72, 198, 239);
+  background: -moz-linear-gradient(180deg, rgba(72, 198, 239, 1) 0%, rgba(111, 134, 214, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(72, 198, 239, 1) 0%, rgba(111, 134, 214, 1) 100%);
+  background: linear-gradient(180deg, rgba(72, 198, 239, 1) 0%, rgba(111, 134, 214, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#48c6ef",endColorstr="#6f86d6",GradientType=1);
 }
 
 #colorFill.air {
-  background: rgb(255,241,235);
-  background: -moz-linear-gradient(180deg, rgba(255,241,235,1) 0%, rgba(172,224,249,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(255,241,235,1) 0%, rgba(172,224,249,1) 100%);
-  background: linear-gradient(180deg, rgba(255,241,235,1) 0%, rgba(172,224,249,1) 100%);
+  background: rgb(255, 241, 235);
+  background: -moz-linear-gradient(180deg, rgba(255, 241, 235, 1) 0%, rgba(172, 224, 249, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255, 241, 235, 1) 0%, rgba(172, 224, 249, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 241, 235, 1) 0%, rgba(172, 224, 249, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fff1eb",endColorstr="#ace0f9",GradientType=1);
 }
 
 #colorFill.earth {
-  background: rgb(212,252,121);
-  background: -moz-linear-gradient(180deg, rgba(212,252,121,1) 0%, rgba(150,230,161,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(212,252,121,1) 0%, rgba(150,230,161,1) 100%);
-  background: linear-gradient(180deg, rgba(212,252,121,1) 0%, rgba(150,230,161,1) 100%);
+  background: rgb(212, 252, 121);
+  background: -moz-linear-gradient(180deg, rgba(212, 252, 121, 1) 0%, rgba(150, 230, 161, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(212, 252, 121, 1) 0%, rgba(150, 230, 161, 1) 100%);
+  background: linear-gradient(180deg, rgba(212, 252, 121, 1) 0%, rgba(150, 230, 161, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d4fc79",endColorstr="#96e6a1",GradientType=1);
 }
 
 #colorFill.metal {
-  background: rgb(134,143,150);
-  background: -moz-linear-gradient(180deg, rgba(134,143,150,1) 0%, rgba(89,97,100,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(134,143,150,1) 0%, rgba(89,97,100,1) 100%);
-  background: linear-gradient(180deg, rgba(134,143,150,1) 0%, rgba(89,97,100,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#868f96",endColorstr="#596164",GradientType=1);}
+  background: rgb(134, 143, 150);
+  background: -moz-linear-gradient(180deg, rgba(134, 143, 150, 1) 0%, rgba(89, 97, 100, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(134, 143, 150, 1) 0%, rgba(89, 97, 100, 1) 100%);
+  background: linear-gradient(180deg, rgba(134, 143, 150, 1) 0%, rgba(89, 97, 100, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#868f96",endColorstr="#596164",GradientType=1);
+}
 
 #colorFill.lightning {
-  background: rgb(255,255,255);
-  background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,252,0,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,252,0,1) 100%);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,252,0,1) 100%);
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 252, 0, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 252, 0, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 252, 0, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#fffc00",GradientType=1);
-  }
+}
 
 #colorFill.plasma {
-  background: rgb(255,0,102);
-  background: -moz-linear-gradient(180deg, rgba(255,0,102,1) 0%, rgba(212,24,114,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(255,0,102,1) 0%, rgba(212,24,114,1) 100%);
-  background: linear-gradient(180deg, rgba(255,0,102,1) 0%, rgba(212,24,114,1) 100%);
+  background: rgb(255, 0, 102);
+  background: -moz-linear-gradient(180deg, rgba(255, 0, 102, 1) 0%, rgba(212, 24, 114, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255, 0, 102, 1) 0%, rgba(212, 24, 114, 1) 100%);
+  background: linear-gradient(180deg, rgba(255, 0, 102, 1) 0%, rgba(212, 24, 114, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0066",endColorstr="#d41872",GradientType=1);
 }
 
 #colorFill.void {
-  background: rgb(67,198,172);
-  background: -moz-linear-gradient(180deg, rgba(67,198,172,1) 0%, rgba(25,22,84,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(67,198,172,1) 0%, rgba(25,22,84,1) 100%);
-  background: linear-gradient(180deg, rgba(67,198,172,1) 0%, rgba(25,22,84,1) 100%);
+  background: rgb(67, 198, 172);
+  background: -moz-linear-gradient(180deg, rgba(67, 198, 172, 1) 0%, rgba(25, 22, 84, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(67, 198, 172, 1) 0%, rgba(25, 22, 84, 1) 100%);
+  background: linear-gradient(180deg, rgba(67, 198, 172, 1) 0%, rgba(25, 22, 84, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#43c6ac",endColorstr="#191654",GradientType=1);
-  }
+}
 
 #colorFill.life {
-  background-image: linear-gradient(180deg, #e9defa 0%, #fbfcdb 100%);
+  background: rgb(233,222,250);
+  background: -moz-linear-gradient(180deg, rgba(233,222,250,1) 0%, rgba(251,252,219,1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(233,222,250,1) 0%, rgba(251,252,219,1) 100%);
+  background: linear-gradient(180deg, rgba(233,222,250,1) 0%, rgba(251,252,219,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e9defa",endColorstr="#fbfcdb",GradientType=1); 
 }
 
 #colorFill.aether {
-  background: rgb(251,252,219);
-  background: -moz-linear-gradient(180deg, rgba(251,252,219,1) 0%, rgba(151,149,240,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(251,252,219,1) 0%, rgba(151,149,240,1) 100%);
-  background: linear-gradient(180deg, rgba(251,252,219,1) 0%, rgba(151,149,240,1) 100%);
+  background: rgb(251, 252, 219);
+  background: -moz-linear-gradient(180deg, rgba(251, 252, 219, 1) 0%, rgba(151, 149, 240, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(251, 252, 219, 1) 0%, rgba(151, 149, 240, 1) 100%);
+  background: linear-gradient(180deg, rgba(251, 252, 219, 1) 0%, rgba(151, 149, 240, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbfcdb",endColorstr="#9795f0",GradientType=1);
 }
 
 #colorFill.light {
-  background: rgb(228,239,233);
-  background: -moz-linear-gradient(180deg, rgba(228,239,233,1) 0%, rgba(147,165,207,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(228,239,233,1) 0%, rgba(147,165,207,1) 100%);
-  background: linear-gradient(180deg, rgba(228,239,233,1) 0%, rgba(147,165,207,1) 100%);
+  background: rgb(228, 239, 233);
+  background: -moz-linear-gradient(180deg, rgba(228, 239, 233, 1) 0%, rgba(147, 165, 207, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(228, 239, 233, 1) 0%, rgba(147, 165, 207, 1) 100%);
+  background: linear-gradient(180deg, rgba(228, 239, 233, 1) 0%, rgba(147, 165, 207, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4efe9",endColorstr="#93a5cf",GradientType=1);
 }
 
 #colorFill.darkness {
-  background: rgb(186,200,224);
-  background: -moz-linear-gradient(180deg, rgba(186,200,224,1) 0%, rgba(106,133,182,1) 100%);
-  background: -webkit-linear-gradient(180deg, rgba(186,200,224,1) 0%, rgba(106,133,182,1) 100%);
-  background: linear-gradient(180deg, rgba(186,200,224,1) 0%, rgba(106,133,182,1) 100%);
+  background: rgb(186, 200, 224);
+  background: -moz-linear-gradient(180deg, rgba(186, 200, 224, 1) 0%, rgba(106, 133, 182, 1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(186, 200, 224, 1) 0%, rgba(106, 133, 182, 1) 100%);
+  background: linear-gradient(180deg, rgba(186, 200, 224, 1) 0%, rgba(106, 133, 182, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bac8e0",endColorstr="#6a85b6",GradientType=1);
 }
 
-/***
- *     ██████╗██╗██████╗  ██████╗██╗     ███████╗
- *    ██╔════╝██║██╔══██╗██╔════╝██║     ██╔════╝
- *    ██║     ██║██████╔╝██║     ██║     █████╗  
- *    ██║     ██║██╔══██╗██║     ██║     ██╔══╝  
- *    ╚██████╗██║██║  ██║╚██████╗███████╗███████╗
- *     ╚═════╝╚═╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
- *                                               
- */
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *            CIRCLE GRID
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 #signContainer {
-  color: #000;
-  position: relative;
-  width: 47.25rem;
   height: 47.25rem;
   margin: 0 auto 3rem;
+  position: relative;
+  width: 47.25rem;
+
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(5, 20%);
   grid-template-areas:
     ". darkness fire water ."
     "light . . . air"
     "aether . spin . earth"
     "life . . . metal"
     ". void plasma lightning .";
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 20%);
   justify-items: center;
 }
 
-/***
- *    ███████╗██╗ ██████╗ ███╗   ██╗███████╗
- *    ██╔════╝██║██╔════╝ ████╗  ██║██╔════╝
- *    ███████╗██║██║  ███╗██╔██╗ ██║███████╗
- *    ╚════██║██║██║   ██║██║╚██╗██║╚════██║
- *    ███████║██║╚██████╔╝██║ ╚████║███████║
- *    ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- *                                          
- */
-
-button.sign:hover {
-  cursor: pointer;
-}
-
-button.sign img {
-  border-radius: 50%;
-  box-shadow: none;
-  opacity: 0.7;
-  transition: opacity 0.25s ease-in-out, filter 0.25s ease-in-out;
-  display: block;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-button.sign:hover img, button.sign:focus img {
-  filter: drop-shadow(0 0.1rem 0.5rem rgba(0, 0, 0, 0.6));
-  opacity: 1;
-}
-
-button.sign p {
-  color: #000;
-  font-family: "MontserratRegular", Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  position: relative;
-  text-align: center;
-  top: -0.5rem;
-  transition: top 0.25s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0;
-}
-
-button.sign:hover p, button.sign:focus p {
-  top: -0.25rem;
-  opacity: 1;
-}
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *           SIGN BUTTONS
+  * -------------------------------------
+  * -------------------------------------
+  */
 
 .sign {
   display: block;
@@ -384,7 +355,51 @@ button.sign:hover p, button.sign:focus p {
   padding: 0;
 }
 
-/* IDs for individual signs */
+button.sign:hover {
+  cursor: pointer;
+}
+
+/* Element icons shown in the grid */
+button.sign img {
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  border-radius: 50%;
+  opacity: 0.7;
+  transition: opacity 0.25s ease-in-out, filter 0.25s ease-in-out;
+}
+
+button.sign:hover img,
+button.sign:focus img {
+  filter: drop-shadow(0 0.1rem 0.5rem rgba(0, 0, 0, 0.6));
+  opacity: 1;
+}
+
+button.sign p {
+  position: relative;
+  top: -0.5rem;
+
+  font-family: "MontserratRegular", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+
+  transition: top 0.25s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+button.sign:hover p,
+button.sign:focus p {
+  opacity: 1;
+  top: -0.25rem;
+}
+
+/* 
+  * -------------------------------------
+  *          SIGN POSITIONING
+  * -------------------------------------
+*/
+
 #fire {
   grid-area: fire;
 }
@@ -441,54 +456,41 @@ button.sign:hover p, button.sign:focus p {
   top: 2.3625rem;
 }
 
-/***
- *    ███████╗██████╗ ██╗███╗   ██╗███╗   ██╗███████╗██████╗ ███████╗
- *    ██╔════╝██╔══██╗██║████╗  ██║████╗  ██║██╔════╝██╔══██╗██╔════╝
- *    ███████╗██████╔╝██║██╔██╗ ██║██╔██╗ ██║█████╗  ██████╔╝███████╗
- *    ╚════██║██╔═══╝ ██║██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══██╗╚════██║
- *    ███████║██║     ██║██║ ╚████║██║ ╚████║███████╗██║  ██║███████║
- *    ╚══════╝╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚══════╝
- *                                                                   
- */
 
-@keyframes spin-clock {
-  to {
-    transform: rotate(360deg);
-  }
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *              OVERLAY
+  * -------------------------------------
+  * -------------------------------------
+*/
+
+#overlay {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #f7f7f7;
+  
+  grid-area: 1 / 1 / -1 / -1;
+  position: fixed;
+  z-index: 20;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes spin-counter {
-  to {
-    transform: rotate(-360deg);
-  }
+.noScroll { /* Gets applied to the body when overlay is active to prevent page scolling */
+  overflow: hidden;
 }
 
-.spin {
-  display: block;
-  grid-area: spin;
-}
+/* 
+  * -------------------------------------
+  *          OVERLAY ANIMATIONS
+  * -------------------------------------
+*/
 
-#spin01 {
-  width: 6.25rem;
-  height: 6.25rem;
-  border: 3px solid rgba(255, 255, 255, 0);
-  border-radius: 50%;
-  border-top-color: #fff;
-  animation: spin-clock 6s linear infinite;
-}
-
-#spin02 {
-  width: 8rem;
-  height: 8rem;
-  border: 1px solid rgba(255, 255, 255, 0);
-  border-radius: 50%;
-  border-left-color: #fff;
-  animation: spin-counter 10s linear infinite;
-  position: relative;
-  top: -0.875rem;
-}
-
-/* Overlay */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -517,66 +519,62 @@ button.sign:hover p, button.sign:focus p {
   display: flex;
 }
 
-#overlay {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #f7f7f7;
-  grid-area: 1 / 1 / -1 / -1;
-  position: fixed;
-  z-index: 20;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+#overlay h2 {
+  font: 2.5rem "Potra", Arial, Helvetica, sans-serif;
 }
 
-.noScroll {
-  overflow: hidden;
+.overlayClose {
+  grid-area: close;
+  height: 2.5rem;
+  width: 9rem;
+  text-transform: uppercase;
+  border-radius: 1.25rem;
+  border: 2px solid #ffffff;
+  font-family: "Potra", Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.7;
+  background: none;
+  transition: text-shadow 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
+
+.overlayClose:hover, .overlayClose:focus {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.6), 0 0 4px 0 rgba(0, 0, 0, 0.6) inset;
+}
+
+/* 
+  * -------------------------------------
+  *          START UP OVERLAY
+  * -------------------------------------
+*/
 
 .infoContainer {
   width: 60rem;
   height: 40rem;
-  background-color: #333333;
-  border-radius: 1rem;
-  display: grid;
+  
   padding: 5rem;
+  
+  display: grid;
+  align-items: center;
   grid-template-columns: 22.5rem 5rem 22.5rem;
   grid-template-rows: 3rem 1.5rem 1fr 10rem 2rem 1fr 3rem;
   grid-template-areas:
-    "heading heading heading"
-    "subhead subhead subhead"
-    ". . ."
-    "method . method2"
-    "desc . desc2"
-    ". . ."
-    "close close close";
+  "heading heading heading"
+  "subhead subhead subhead"
+  ". . ."
+  "method . method2"
+  "desc . desc2"
+  ". . ."
+  "close close close";
   justify-items: center;
-  align-items: center;
-}
-
-.signInfo {
-  width: 60rem;
-  height: 40rem;
-  background-color: #333333;
+  
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(165deg, #434343, #000000); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(165deg, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 1rem;
-  display: grid;
-  padding: 5rem;
-  grid-template-rows: 10rem 4rem 1.5rem 1rem auto 1rem 3rem;
-  grid-template-areas:
-    "icon"
-    "title"
-    "date"
-    "."
-    "desc"
-    "."
-    "close";
-  justify-items: center;
-  align-items: center;
-}
-
-#overlay h2 {
-  font: 2.5rem "Potra", Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 9px 2px rgba(0,0,0,0.6);
 }
 
 .overlayHeading {
@@ -592,12 +590,18 @@ button.sign:hover p, button.sign:focus p {
 
 .overlayMethod {
   grid-area: method;
-  filter: invert(85%) drop-shadow(0 0 1rem black);
+  filter: invert(95%) drop-shadow(0 0 1rem black);
   height: 80%;
 }
 
 .overlayMethod2 {
   grid-area: method2;
+  border: 6px solid #fff;
+  border-radius: 1rem;
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+  box-shadow: 0 0 7px 1px rgba(0,0,0,.6), 0 0 7px 1px rgba(0,0,0,.6) inset;
+  text-shadow: 0 0 4px rgba(0,0,0,.7);
 }
 
 .overlayDesc {
@@ -608,16 +612,43 @@ button.sign:hover p, button.sign:focus p {
   grid-area: desc2;
 }
 
-.overlayClose {
-  grid-area: close;
-  background: none;
-  color: #f7f7f7;
-  font: 2.5rem "Potra", Arial, Helvetica, sans-serif;
+
+/* 
+  * -------------------------------------
+  *           SIGN OVERLAYS
+  * -------------------------------------
+*/
+
+.signInfo {
+  width: 60rem;
+  height: 40rem;
+
+  padding: 5rem;
+
+  display: grid;
+  align-items: center;
+  grid-template-rows: 10rem 4rem 1.5rem 1rem auto 1rem 3rem;
+  grid-template-areas:
+    "icon"
+    "title"
+    "date"
+    "."
+    "desc"
+    "."
+    "close";
+  justify-items: center;
+
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(165deg, #434343, #000000); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(165deg, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 1rem;
+  box-shadow: 0 0 9px 2px rgba(0,0,0,0.6);
 }
 
 .elementIcon {
   grid-area: icon;
   height: 100%;
+  filter: invert(95%) drop-shadow(0 0 1rem black);
 }
 
 .signName {
@@ -628,7 +659,13 @@ button.sign:hover p, button.sign:focus p {
   grid-area: date;
 }
 
-/* Birthday Form */
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *           BIRTHDAY FORM
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 #birthdayForm {
   display: flex;
@@ -680,17 +717,24 @@ input[type="submit"] {
   font-size: 1.75rem;
   color: #000000;
   cursor: pointer;
-  opacity: .7;
+  opacity: 0.7;
   background: none;
-  transition: text-shadow .25s ease-in-out, box-shadow .25s ease-in-out;
+  transition: text-shadow 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 
-input[type="submit"]:hover, input[type="submit"]:focus {
+input[type="submit"]:hover,
+input[type="submit"]:focus {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.6), 0 0 4px 0 rgba(0, 0, 0, 0.6) inset;
 }
 
-/* Form Invalidation */
+/* 
+  * -------------------------------------
+  *         FORM INVALIDATION
+  * -------------------------------------
+*/
+
+/* Resets */
 :invalid {
   box-shadow: none;
 }
@@ -703,70 +747,62 @@ input[type="submit"]:hover, input[type="submit"]:focus {
   box-shadow: none;
 }
 
-/* ----------------------------------------------
+/*      
+ * --------------------------------------------
  * Generated by Animista on 2019-3-20 11:32:57
  * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
+ * -------------------------------------------
+*/
+/* 
  * ----------------------------------------
  * animation shake-horizontal
- * ----------------------------------------
- */
- @-webkit-keyframes shake-horizontal {
-  0%,
-  100% {
+ * ---------------------------------------- 
+*/
+
+@-webkit-keyframes shake-horizontal {
+  0%, 100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
-  10%,
-  30%,
-  50%,
-  70% {
+  10%, 30%, 50%, 70% {
     -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
-  20%,
-  40%,
-  60% {
+  20%, 40%, 60% {
     -webkit-transform: translateX(10px);
-            transform: translateX(10px);
+    transform: translateX(10px);
   }
   80% {
     -webkit-transform: translateX(8px);
-            transform: translateX(8px);
+    transform: translateX(8px);
   }
   90% {
     -webkit-transform: translateX(-8px);
-            transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 }
+
 @keyframes shake-horizontal {
   0%,
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
-  10%,
-  30%,
-  50%,
-  70% {
+  10%, 30%, 50%, 70% {
     -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    transform: translateX(-10px);
   }
-  20%,
-  40%,
-  60% {
+  20%, 40%, 60% {
     -webkit-transform: translateX(10px);
-            transform: translateX(10px);
+    transform: translateX(10px);
   }
   80% {
     -webkit-transform: translateX(8px);
-            transform: translateX(8px);
+    transform: translateX(8px);
   }
   90% {
     -webkit-transform: translateX(-8px);
-            transform: translateX(-8px);
+    transform: translateX(-8px);
   }
 }
 
@@ -775,9 +811,19 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 }
 
 .invalidShake {
-  -webkit-animation: shake-horizontal 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) forwards;
-	animation: shake-horizontal 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) forwards;
+  -webkit-animation: shake-horizontal 0.5s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+  animation: shake-horizontal 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    forwards;
 }
+
+/* 
+  * -------------------------------------
+  * -------------------------------------
+  *           HIDDEN RESET
+  * -------------------------------------
+  * -------------------------------------
+*/
 
 .hidden {
   display: none;
