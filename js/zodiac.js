@@ -27,7 +27,7 @@ const air = new sign(
   "air",
   "img/icons/air.svg",
   "audio/03air.mp3",
-  "Soothing and crisp. Carries warth and cool through the world. Swirling it gently bends the world to its will. Gently carving serene sculptures from its environment.",
+  "Soothing and crisp. Carries warth and coolness through the world. Swirling it gently bends the world to its will. Gently carving serene sculptures from its environment.",
   "May 21 - June 20"
 );
 const earth = new sign(
@@ -41,21 +41,21 @@ const metal = new sign(
   "metal",
   "img/icons/metal.svg",
   "audio/05metal.mp3",
-  "TBD",
+  "Sturdy and moldable. Can be made to form any shape, and once set can remain in that form or be changed again with a little persuasion. Has the ability to be sharp or smooth, rough or soft with just a little bit of influence.",
   "July 23 - August 22"
 );
 const lightning = new sign(
   "lightning",
   "img/icons/lightning.svg",
   "audio/06lightning.mp3",
-  "Fierce and full of awesome power. Visible for all but a moment, but with untameable strength.",
+  "Fierce and full of awesome power. Visible for all but a moment, but with untameable strength. Often is quick and random, and said to never strike the same place twice.",
   "August 23 - September 22"
 );
 const plasma = new sign(
   "plasma",
   "img/icons/plasma.svg",
   "audio/07plasma.mp3",
-  "TBD",
+  "Burning hot and bright it can be easy to excite. It can light up and warm the entirety of the world in it's gaze.",
   "September 23 - October 23"
 );
 const space = new sign(
@@ -69,7 +69,7 @@ const life = new sign(
   "life",
   "img/icons/life.svg",
   "audio/09life.mp3",
-  "TBD",
+  "Mysterious and ever present. Though short, it is thought to be the most beautiful thing in existence. Under its watchful eyes magnificent creatures and feats have blossomed.",
   "November 22 - December 21"
 );
 const aether = new sign(
@@ -90,7 +90,7 @@ const darkness = new sign(
   "darkness",
   "img/icons/darkness.svg",
   "audio/12darkness.mp3",
-  "TBD",
+  "An unknown presence. It is evident that it is there and exists, yet it conceals all within its blanket of mystique, making it impossible to clearly understand it. Thus, eliciting fear from those enveloped by it.",
   "February 19 - March 20"
 );
 
