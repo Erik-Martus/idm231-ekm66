@@ -481,7 +481,8 @@ button.sign:focus p {
   align-items: center;
 }
 
-.noScroll { /* Gets applied to the body when overlay is active to prevent page scolling */
+/* Gets applied to the body when overlay is active to prevent page scolling */
+.noScroll { 
   overflow: hidden;
 }
 
@@ -826,5 +827,5 @@ input[type="submit"]:focus {
 */
 
 .hidden {
-  display: none;
+  display: none !important;
 }

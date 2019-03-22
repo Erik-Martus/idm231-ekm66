@@ -286,10 +286,10 @@ myPromise.then(successMessage => {
       overlayContainer.classList.remove("fadeIn");
       overlayContainer.classList.add("fadeOut");
       body.classList.remove("noScroll");
-      stopSound(water.sound);
 
       window.setTimeout(() => {
         overlayContainer.classList.add("hidden");
+        console.log(overlayContainer);
         overlayContainer.classList.remove("fadeOut");
         overlayContainer.setAttribute("hidden", "");
         overlayContainer.setAttribute("aria-hidden", true);
